@@ -30,6 +30,12 @@ Route::view('ogrbasvurular','ogrbasvurular');
 Route::view('dananasay','dananasay');
 Route::view('danbasvurular','danbasvurular');
 Route::view('danogrlist','danogrlist');
+
+Route::view('danproje','danproje');
+Route::view('danrapor','danrapor');
+Route::view('dantez','dantez');
+
+
 Route::view('danprofil','danprofil');
 Route::view('admingiris','admingiris');
 Route::view('siskontrol','siskontrol');

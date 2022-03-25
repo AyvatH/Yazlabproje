@@ -174,7 +174,7 @@
                                                             <td>{{ $val ['soyad']}}</td>
                                                              <td>{{ $val ["no"]}}</td>
                                                             <td>
-                                                                <a href="{{url("onayla/".$akey)}}" type="submit" class="label theme-bg2 text-white f-12">Düzenle</a>
+                                                                <a href="{{url("onayla/".$akey)}}" type="submit" class="label theme-bg text-white f-12">Düzenle</a>
 
                                                              </td>
                                                              <td>   <a href="{{url("sil/$akey")}}" type="submit" class="label theme-bg2 text-white f-12">Sil</a>
