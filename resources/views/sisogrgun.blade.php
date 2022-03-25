@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Datta Able Free Bootstrap 4 Admin Template</title>
+    <title>Öğrenci Güncelle</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -18,7 +18,7 @@
     <meta name="author" content="CodedThemes"/>
 
      <!-- Favicon icon -->
-     <link rel="icon" href="{{url('images/logoo.png')}}" type="image/x-icon">
+  <link rel="icon" href="{{url('images/favicon.ico')}}" type="image/x-icon">
   <!-- fontawesome icon -->
   <link rel="stylesheet" href="{{url('fonts/fontawesome/css/fontawesome-all.min.css')}}">
   <!-- animation css -->
@@ -43,7 +43,7 @@
             <div class="navbar-brand header-logo">
                 <a href="siskontrol" class="b-brand">
                     <div class="b-bg">
-                    <i ><img src="{{url('images/logoo.png')}}" width="50px" height="50px"></i>
+                        <i class="feather icon-trending-up"></i>
                     </div>
                     <span class="b-title">PTS</span>
                 </a>
@@ -139,7 +139,7 @@
                             <div class="row align-items-center">
                                 <div class="col-md-12">
                                     <div class="page-header-title">
-                                        <h5 class="m-b-10">Öğrenci Düzenleme</h5>
+                                        <h5 class="m-b-10">Öğrenci Güncelle</h5>
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="siskontrol"><i class="feather icon-home"></i></a></li>
@@ -157,66 +157,75 @@
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Öğrenci Düzenleme</h5>
+                                            <h5>Öğrenci Güncelle</h5>
                                         </div>
+
                                         <div class="card-body">
-                                            <label for="exampleFormControlSelect1">Dönem</label>
-                                            <hr>
+
+
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <form>
-                                                    <div class="form-group">
+                                                    <input type="text" value="{{$aakey=$dataa['id']}}" name="id">
+                                                    <form id="addCustomer"  class="form-group" method="POST" action="{{route('guncel')}}" >
+                                                        @csrf <!-- {{ csrf_field() }} -->
+                                                        <input type="text" value="{{$aakey=$dataa['id']}}" name="id">
+                                                        <div class="form-group">
                                                             <label for="exampleNameSurname">Ad</label>
-                                                            <input type="text" class="form-control" id="exampleNameSurname" placeholder="Ad">
-                                                        </div><div class="form-group">
+                                                            <input type="text" class="form-control" name="ad" id="ad" value="{{$dataa->ad}}" placeholder="Ad">
+                                                        </div>
+                                                        <div class="form-group">
                                                             <label for="exampleNameSurname">Soyad</label>
-                                                            <input type="text" class="form-control" id="exampleNameSurname" placeholder="Soyad">
+                                                            <input type="text" class="form-control" name="soyad" id="sad" value="{{$dataa->soyad}}" placeholder="Soyad">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Öğrenci Mail Adresi</label>
-                                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@kocaeli.edu.tr">
+                                                            <input type="email" class="form-control" name="eposta" id="eposta" value="{{$dataa->eposta}}" aria-describedby="emailHelp" placeholder="@kocaeli.edu.tr">
                                                         </div>
+
                                                         <div class="form-group">
                                                             <label for="exampleInputPassword1">Öğrenci Numarası</label>
-                                                            <input type="text" class="form-control" id="examplestudentid" placeholder="Öğrenci Numarası">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="examplefaculty">Fakülte</label>
-                                                            <input type="text" class="form-control" id="exampleFaculty" aria-describedby="emailHelp" placeholder="Fakülte">
+                                                            <input type="text" class="form-control"name="no" id="no" value={{$dataa->no}} placeholder="Öğrenci Numarası">
                                                         </div>
 
 
-                                                        <div class="col-sm-12">
-                                                            <div class="card">
-                                                                <button type="button" class="btn btn-outline-primary" title="Projeyi Öner" data-toggle="tooltip">Kaydet ve Bilgileri Gönder</button>
-                                                            </div>
-                                                        </div>
 
-                                                    </form>
+
+
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <form>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Öğrenci Sınıf</label>
+                                                        <input type="text" class="form-control" id="sinif" name="sinif" value={{$dataa->sinif}}  placeholder="3.sınıf">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="examplefaculty">Fakülte</label>
+                                                        <input type="text" class="form-control" id="fak" name="fak" value={{$dataa->fak}}  placeholder="Fakülte">
+                                                    </div>
                                                         <div class="form-group">
                                                             <label>Bölüm</label>
-                                                            <input type="text" class="form-control" placeholder="Bölüm">
+                                                            <input type="text" class="form-control" id="bolum" name="bolum" value={{$dataa->bolum}} placeholder="Bölüm">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label>Sınıf</label>
-                                                            <input type="text" class="form-control" placeholder="Sınıf">
-                                                        </div>
-                                                        <div class="form-group">
+
+
                                                             <div class="form-group">
                                                                 <label for="examplefaculty">Telefon Numarası</label>
-                                                                <input type="text" class="form-control" id="examplephone" aria-describedby="emailHelp" placeholder="Telefon Numarası">
+                                                                <input type="text" class="form-control" id="tel" name="tel" value={{$dataa->tel}} aria-describedby="emailHelp" placeholder="Telefon Numarası">
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="exampleInputPassword1">Şifre</label>
-                                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre"><div class="form-group">
+                                                            <input type="password" class="form-control" id="sifre" name="sifre" value={{$dataa->sifre}} placeholder="Şifre"><div class="form-group">
 
                                                             </div>
                                                         </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="card">
+                                                                <button type="submit" class="btn btn-outline-primary" title="Projeyi Öner" data-toggle="tooltip">Kaydet ve Bilgileri Gönder</button>
+                                                            </div>
+                                                        </div>
+
 
                                                     </form>
                                                 </div>

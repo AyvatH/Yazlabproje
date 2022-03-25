@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProjeVt;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,22 +28,29 @@ Route::view('ogrrapor','ogrrapor');
 Route::view('ogrtez','ogrtez');
 Route::view('ogrbasvurular','ogrbasvurular');
 Route::view('dananasay','dananasay');
-
+Route::view('danbasvurular','danbasvurular');
 Route::view('danogrlist','danogrlist');
 Route::view('danprofil','danprofil');
-Route::view('danproje','danproje');
-Route::view('danrapor','danrapor');
-Route::view('dantez','dantez');
 Route::view('admingiris','admingiris');
-Route::view('siskontrol','siskontrol');
 Route::view('siskontrol','siskontrol');
 Route::view('sisogrekle','sisogrekle');
 Route::view('sisdanekle','sisdanekle');
 Route::view('sisprofile','sisprofile');
-Route::view('sisogrdzn','sisogrdzn');
-Route::view('sisdandzn','sisdandzn');
 
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/ekle', [ProjeVt::class, 'ekleme']);
+
+
+
+
+Route::get('siskontrol',[ProjeVt::class,'liste'])->name("admin.home");
+Route::post('sisogrgun',[ProjeVt::class,'guncelled'])->name("guncel");
+
+Route::get('onayla/{id}',[ProjeVt::class,'guncelle']);
+Route::get('sil/{id}',[ProjeVt::class,'sil']);
+
+Route::get('/listele', [ProjeVt::class, 'listele']);
+Route::post('sisdanekle',[ProjeVt::class,'danekle']);
+Route::post('sisogrekle',[ProjeVt::class,'ogrekle']);

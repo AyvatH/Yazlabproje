@@ -18,7 +18,7 @@
     <meta name="author" content="CodedThemes"/>
 
   <!-- Favicon icon -->
-  <link rel="icon" href="{{url('images/logoo.png')}}" type="image/x-icon">
+  <link rel="icon" href="{{url('images/favicon.ico')}}" type="image/x-icon">
   <!-- fontawesome icon -->
   <link rel="stylesheet" href="{{url('fonts/fontawesome/css/fontawesome-all.min.css')}}">
   <!-- animation css -->
@@ -42,7 +42,7 @@
             <div class="navbar-brand header-logo">
                 <a href="siskontrol" class="b-brand">
                     <div class="b-bg">
-                    <i ><img src="{{url('images/logoo.png')}}" width="50px" height="50px"></i>
+                        <i class="feather icon-trending-up"></i>
                     </div>
                     <span class="b-title">PTS</span>
                 </a>
@@ -154,51 +154,39 @@
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
                                                 <table class="table table-hover">
+
                                                     <thead>
                                                         <tr>
-                                                            <th>ID</th>
                                                             <th>Ad</th>
                                                             <th>Soyad</th>
                                                             <th>Öğrenci Numarası</th>
-                                                            <th>Başvuru Türü</th>
-                                                            <th>Başvuru Durumu</th>
-                                                            <th>              </th>
-                                                            <th>              </th>
+                                                            <th>Düzenle</th>
+                                                            <th>Sil</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Mark</td>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
-                                                            <td>@mdo</td>
-                                                            <td><button type="button" class="label theme-bg text-white f-12">Düzenle</button></td>
-                                                            <td><button type="button" class="label theme-bg2 text-white f-12">Sil</button></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Jacob</td>
-                                                            <td>Mark</td>
-                                                            <td>Thornton</td>
-                                                            <td>@fat</td>
-                                                            <td>@mdo</td>
-                                                            <td><button type="button" class="label theme-bg text-white f-12">Düzenle</button></td>
-                                                            <td><button type="button" class="label theme-bg2 text-white f-12">Sil</button></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>Larry</td>
-                                                            <td>Mark</td>
-                                                            <td>the Bird</td>
-                                                            <td>@twitter</td>
-                                                            <td>@mdo</td>
-                                                            <td><button type="button" class="label theme-bg text-white f-12">Düzenle</button></td>
-                                                            <td><button type="button" class="label theme-bg2 text-white f-12">Sil</button></td>
-                                                        </tr>
+                                                    <tbody >
 
-                                                    </tbody>
+                                                        @forelse ($bilgi as $key => $val)
+                                                        <input  type="hidden" class="form-control" name="kadd"  {{ $akey=$val ['id']}} placeholder="Kullanıcı Adı">
+
+                                                        <tr>
+                                                            <td>{{  $val ['ad']}}</td>
+                                                            <td>{{ $val ['soyad']}}</td>
+                                                             <td>{{ $val ["no"]}}</td>
+                                                            <td>
+                                                                <a href="{{url("onayla/".$akey)}}" type="submit" class="label theme-bg2 text-white f-12">Düzenle</a>
+
+                                                             </td>
+                                                             <td>   <a href="{{url("sil/$akey")}}" type="submit" class="label theme-bg2 text-white f-12">Sil</a>
+                                            </td></tr>
+                                            @empty
+                                            <tr>
+                                                <td colspan="4">Veri bulunamadı</td>
+                                            </tr>
+                                            @endforelse
+
+
+                                            </tbody>
                                                 </table>
                                             </div>
                                         </div>
@@ -229,42 +217,30 @@
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>ID</th>
-                                                            <th>Ad</th>
-                                                            <th>Soyad</th>
-                                                            <th>Öğrenci Numarası</th>
+                                                            <th>#</th>
+                                                            <th>Ad-Soyad</th>
+                                                            <th>Öğrenci Adı-Soyadı</th>
                                                             <th>Değerlendirme Sonucu</th>
-                                                            <th>              </th>
-                                                            <th>              </th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <tr>
+                                                        <tr>
                                                             <th scope="row">1</th>
-                                                            <td>Mark</td>
                                                             <td>Mark</td>
                                                             <td>Otto</td>
                                                             <td>@mdo</td>
-                                                            <td><button type="button" class="label theme-bg text-white f-12">Düzenle</button></td>
-                                                            <td><button type="button" class="label theme-bg2 text-white f-12">Sil</button></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">2</th>
                                                             <td>Jacob</td>
-                                                            <td>Mark</td>
                                                             <td>Thornton</td>
                                                             <td>@fat</td>
-                                                            <td><button type="button" class="label theme-bg text-white f-12">Düzenle</button></td>
-                                                            <td><button type="button" class="label theme-bg2 text-white f-12">Sil</button></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">3</th>
                                                             <td>Larry</td>
-                                                            <td>Mark</td>
                                                             <td>the Bird</td>
                                                             <td>@twitter</td>
-                                                            <td><button type="button" class="label theme-bg text-white f-12">Düzenle</button></td>
-                                                            <td><button type="button" class="label theme-bg2 text-white f-12">Sil</button></td>
                                                         </tr>
 
                                                     </tbody>
