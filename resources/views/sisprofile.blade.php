@@ -47,7 +47,7 @@
                     <div class="b-bg">
                     <i ><img src="{{url('images/logoo.png')}}" width="50px" height="50px"></i>
                     </div>
-                    <span class="b-title">PTS</span>
+                     <span class="b-title">KOU</span>
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
