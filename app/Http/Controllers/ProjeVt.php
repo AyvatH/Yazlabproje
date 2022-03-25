@@ -49,14 +49,8 @@ class ProjeVt extends Controller
         "eposta"=>$request->eposta,
         "sifre"=>$request->sifre,"sinif"=>$request->sinif,
         "bolum"=>$request->bolum,"fak"=>$request->fak,"tel"=>$request->tel]);
-        /*
-            $data=enciler::whereId($veri)->update
-          (["ad"=>"berdeuş","soyad"=>"ayvat","no"=>"191",
-          "eposta"=>"asd",
-          "sifre"=>"sifre","sinif"=>"3",
-          "bolum"=>"tek","fak"=>"bil","tel"=>"505"]);
-*/
          return redirect()->route('admin.home');
 
         }
+
 }
