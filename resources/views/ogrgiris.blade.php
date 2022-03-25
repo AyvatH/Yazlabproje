@@ -40,15 +40,17 @@
                     <div class="mb-4">
                         <i ><img src="{{url('images/logoo.png')}}" width="150px" height="150px"></i>
                     </div>
+                    <form id="addCustomer"  class="form-group" method="POST" action="{{route('ogrhome')}}" >
+                        @csrf <!-- {{ csrf_field() }} -->
                     <h3 class="mb-4">Giriş</h3>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="text" name="no" class="form-control" placeholder="Ögrenci No">
                     </div>
                     <div class="input-group mb-4">
-                        <input type="password" class="form-control" placeholder="Şifre">
+                        <input type="password" name="sifre" class="form-control" placeholder="Şifre">
                     </div>
 
-                    <button class="btn btn-primary shadow-2 mb-4">Giriş Yap</button>
+                    <button type="submit" class="btn btn-primary shadow-2 mb-4">Giriş Yap</button>
                     <p class="mb-2 text-muted">Parolanızı mı unuttunuz? <a href="sifre">Değiştir</a></p>
 
                 </div>

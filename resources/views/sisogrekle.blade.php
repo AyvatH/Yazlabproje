@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Datta Able Free Bootstrap 4 Admin Template</title>
+    <title>Ögrenci Ekle</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -18,7 +18,7 @@
     <meta name="author" content="CodedThemes"/>
 
      <!-- Favicon icon -->
-     <link rel="icon" href="{{url('images/logoo.png')}}" type="image/x-icon">
+  <link rel="icon" href="{{url('images/favicon.ico')}}" type="image/x-icon">
   <!-- fontawesome icon -->
   <link rel="stylesheet" href="{{url('fonts/fontawesome/css/fontawesome-all.min.css')}}">
   <!-- animation css -->
@@ -29,14 +29,13 @@
 </head>
 
 <body>
-   <!-- [ Pre-loader ] start
+    <!-- [ Pre-loader ] start
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
         </div>
     </div>
-   [ Pre-loader ] End -->
-    <!-- [ navigation menu ] start -->
+    [ Pre-loader ] End -->
 
     <!-- [ navigation menu ] start -->
     <nav class="pcoded-navbar">
@@ -44,9 +43,9 @@
             <div class="navbar-brand header-logo">
                 <a href="siskontrol" class="b-brand">
                     <div class="b-bg">
-                    <i ><img src="{{url('images/logoo.png')}}" width="50px" height="50px"></i>
+                        <i class="feather icon-trending-up"></i>
                     </div>
-                     <span class="b-title">KOU</span>
+                    <span class="b-title">PTS</span>
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
@@ -160,6 +159,7 @@
                                         <div class="card-header">
                                             <h5>Öğrenci Ekle</h5>
                                         </div>
+
                                         <div class="card-body">
                                             <label for="exampleFormControlSelect1">Dönem</label>
                                                             <select class="form-control" id="exampleFormControlSelect1">
@@ -170,61 +170,68 @@
                                                                 <option>2021-2022 Bahar</option>
                                                             </select>
                                             <hr>
+
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <form>
-                                                    <div class="form-group">
+                                                    <form id="addCustomer"  class="form-group" method="POST" >
+                                                        @csrf <!-- {{ csrf_field() }} -->
+                                                        <div class="form-group">
                                                             <label for="exampleNameSurname">Ad</label>
-                                                            <input type="text" class="form-control" id="exampleNameSurname" placeholder="Ad">
-                                                        </div><div class="form-group">
+                                                            <input type="text" class="form-control" name="ograd" id="ograd" placeholder="Ad">
+                                                        </div>
+                                                        <div class="form-group">
                                                             <label for="exampleNameSurname">Soyad</label>
-                                                            <input type="text" class="form-control" id="exampleNameSurname" placeholder="Soyad">
+                                                            <input type="text" class="form-control" name="ogrsad" id="ogrsad" placeholder="Soyad">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Öğrenci Mail Adresi</label>
-                                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@kocaeli.edu.tr">
+                                                            <input type="email" class="form-control" name="ogrmail" id="ogrmail" aria-describedby="emailHelp" placeholder="@kocaeli.edu.tr">
                                                         </div>
+
                                                         <div class="form-group">
                                                             <label for="exampleInputPassword1">Öğrenci Numarası</label>
-                                                            <input type="text" class="form-control" id="examplestudentid" placeholder="Öğrenci Numarası">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="examplefaculty">Fakülte</label>
-                                                            <input type="text" class="form-control" id="exampleFaculty" aria-describedby="emailHelp" placeholder="Fakülte">
+                                                            <input type="text" class="form-control"name="ogrno" id="ogrno" placeholder="Öğrenci Numarası">
                                                         </div>
 
 
-                                                        <div class="col-sm-12">
-                                                            <div class="card">
-                                                                <button type="button" class="btn btn-outline-primary" title="Projeyi Öner" data-toggle="tooltip">Kaydet ve Bilgileri Gönder</button>
-                                                            </div>
-                                                        </div>
 
-                                                    </form>
+
+
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <form>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Öğrenci Sınıf</label>
+                                                        <input type="text" class="form-control" id="ogrsinif" name="ogrsinif"  placeholder="3.sınıf">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="examplefaculty">Fakülte</label>
+                                                        <input type="text" class="form-control" id="ogrfak" name="ogrfak"  placeholder="Fakülte">
+                                                    </div>
                                                         <div class="form-group">
                                                             <label>Bölüm</label>
-                                                            <input type="text" class="form-control" placeholder="Bölüm">
+                                                            <input type="text" class="form-control" id="ogrbolum" name="ogrbolum" placeholder="Bölüm">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label>Sınıf</label>
-                                                            <input type="text" class="form-control" placeholder="Sınıf">
-                                                        </div>
-                                                        <div class="form-group">
+
+
                                                             <div class="form-group">
                                                                 <label for="examplefaculty">Telefon Numarası</label>
-                                                                <input type="text" class="form-control" id="examplephone" aria-describedby="emailHelp" placeholder="Telefon Numarası">
+                                                                <input type="text" class="form-control" id="ogrtel" name="ogrtel" aria-describedby="emailHelp" placeholder="Telefon Numarası">
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="exampleInputPassword1">Şifre</label>
-                                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre"><div class="form-group">
+                                                            <input type="password" class="form-control" id="ogrsifre" name="ogrsifre" placeholder="Şifre"><div class="form-group">
 
                                                             </div>
                                                         </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="card">
+                                                                <button type="submit" class="btn btn-outline-primary" title="Projeyi Öner" data-toggle="tooltip">Kaydet ve Bilgileri Gönder</button>
+                                                            </div>
+                                                        </div>
+
 
                                                     </form>
                                                 </div>

@@ -82,7 +82,6 @@
         </div>
     </nav>
     <!-- [ navigation menu ] end -->
-
     <!-- [ Header ] start -->
     <header class="navbar pcoded-header navbar-expand-lg navbar-light">
         <div class="m-header">
@@ -109,7 +108,9 @@
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
                                 <img src="images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
-                                <span>Öğrenci</span>
+                                {{-- {{ dd("sdsad"); }} --}}
+
+                                <span>{{ session()->get('ogr')->ad.' '.session()->get('ogr')->soyad }}</span>
                                 <a href="genelgir" class="dud-logout" title="Çıkış">
                                     <i class="feather icon-log-out"></i>
                                 </a>

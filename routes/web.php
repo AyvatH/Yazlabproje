@@ -47,9 +47,10 @@ Route::view('sisprofile','sisprofile');
 
 
 Route::get('/ekle', [ProjeVt::class, 'ekleme']);
+Route::get('ograna', [ProjeVt::class, 'ogranasayfa'])->name("ograna");
 
 
-
+Route::post('ogrgir',[ProjeVt::class,'ogrgiris'])->name("ogrhome");
 
 Route::get('siskontrol',[ProjeVt::class,'liste'])->name("admin.home");
 Route::post('sisogrgun',[ProjeVt::class,'guncelled'])->name("guncel");
