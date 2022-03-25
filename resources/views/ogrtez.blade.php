@@ -29,13 +29,14 @@
 </head>
 
 <body>
-    <!-- [ Pre-loader ] start -->
+   <!-- [ Pre-loader ] start
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
         </div>
     </div>
-    <!-- [ Pre-loader ] End -->
+   [ Pre-loader ] End -->
+    <!-- [ navigation menu ] start -->
 
     <!-- [ navigation menu ] start -->
     <nav class="pcoded-navbar">
@@ -93,7 +94,7 @@
             <i class="feather icon-more-horizontal"></i>
         </a>
         <div class="collapse navbar-collapse">
-           
+
             <ul class="navbar-nav ml-auto">
                     <div class="dropdown drp-user">
                         <a href="javascript:" class="dropdown-toggle" data-toggle="dropdown">
@@ -109,7 +110,7 @@
                             </div>
                             <ul class="pro-body">
                                 <li><a href="ogrprofil" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -161,7 +162,7 @@
                                                 <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".docx,">
                                                 <button type="button" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
                                               </div>
-                                              
+
                                           </form>
                                         <hr>
                                         <div class="col-sm-12">
@@ -170,7 +171,7 @@
                                             </div>
                                         </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>

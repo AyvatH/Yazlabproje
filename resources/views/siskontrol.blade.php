@@ -29,13 +29,13 @@
 </head>
 
 <body>
-    <!-- [ Pre-loader ] start -->
+    <!-- [ Pre-loader ] start
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
         </div>
     </div>
-    <!-- [ Pre-loader ] End -->
+   [ Pre-loader ] End -->
     <!-- [ navigation menu ] start -->
     <nav class="pcoded-navbar">
         <div class="navbar-wrapper">

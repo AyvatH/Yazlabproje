@@ -29,13 +29,14 @@
 </head>
 
 <body>
-    <!-- [ Pre-loader ] start -->
+   <!-- [ Pre-loader ] start
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
         </div>
     </div>
-    <!-- [ Pre-loader ] End -->
+   [ Pre-loader ] End -->
+    <!-- [ navigation menu ] start -->
 
     <!-- [ navigation menu ] start -->
     <nav class="pcoded-navbar">
@@ -93,7 +94,7 @@
             <i class="feather icon-more-horizontal"></i>
         </a>
         <div class="collapse navbar-collapse">
-            
+
             <ul class="navbar-nav ml-auto">
                     <div class="dropdown drp-user">
                         <a href="javascript:" class="dropdown-toggle" data-toggle="dropdown">
@@ -156,7 +157,7 @@
                                               <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".docx">
                                               <button type="button" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
                                             </div>
-                                            
+
                                           </form>
                                         <hr>
                                         <h5>2.Yükleme</h5>
@@ -170,7 +171,7 @@
                                               <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".docx">
                                               <button type="button" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
                                             </div>
-                                            
+
                                           </form>
                                         <hr>
                                         <h5>3.Yükleme</h5>
@@ -184,7 +185,7 @@
                                               <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".docx">
                                               <button type="button" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
                                             </div>
-                                            
+
                                           </form>
                                         <hr>
                                 </div>
@@ -195,7 +196,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
         </div>

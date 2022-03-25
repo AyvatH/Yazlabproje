@@ -26,13 +26,14 @@
 
     </head>
 <body>
-    <!-- [ Pre-loader ] start -->
+   <!-- [ Pre-loader ] start
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
         </div>
     </div>
-    <!-- [ Pre-loader ] End -->
+   [ Pre-loader ] End -->
+    <!-- [ navigation menu ] start -->
 
     <!-- [ navigation menu ] start -->
     <nav class="pcoded-navbar">
@@ -65,7 +66,7 @@
                     </li>
                     <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                         <a href="danogrlist" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Liste</span></a>
-                    </li> 
+                    </li>
 
                 </ul>
             </div>

@@ -29,13 +29,14 @@
 </head>
 
 <body>
-    <!-- [ Pre-loader ] start -->
+   <!-- [ Pre-loader ] start
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
         </div>
     </div>
-    <!-- [ Pre-loader ] End -->
+   [ Pre-loader ] End -->
+    <!-- [ navigation menu ] start -->
 
     <!-- [ navigation menu ] start -->
     <nav class="pcoded-navbar">
@@ -68,7 +69,7 @@
                     </li>
                     <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                         <a href="danogrlist" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Liste</span></a>
-                    </li> 
+                    </li>
 
                 </ul>
             </div>
@@ -91,7 +92,7 @@
             <i class="feather icon-more-horizontal"></i>
         </a>
         <div class="collapse navbar-collapse">
-            
+
             <ul class="navbar-nav ml-auto">
                     <div class="dropdown drp-user">
                         <a href="javascript:" class="dropdown-toggle" data-toggle="dropdown">
@@ -107,7 +108,7 @@
                             </div>
                             <ul class="pro-body">
                                 <li><a href="danprofil" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
-                               
+
                             </ul>
                         </div>
                     </div>
@@ -133,7 +134,7 @@
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="dananasay"><i class="feather icon-home"></i></a></li>
                                         <li class="breadcrumb-item"><a href="javascript:">Öneriler</a></li>
-                                    
+
                                     </ul>
                                 </div>
                             </div>
@@ -193,7 +194,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!--[ year  sales section ] end-->
 
                             <!-- [ Hover-table ] start -->
@@ -218,7 +219,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        
+
                                                         <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
                                                         <td>Jacob</td>
                                                         <td>Jacob</td>
@@ -237,7 +238,7 @@
                                                         <td><a href="#!" class="label theme-bg2 text-white f-12">Reddet</a><a href="#!" class="label theme-bg text-white f-12">Onayla</a><a href="#!" class="label theme-bg text-white f-12">Açıklama Yap</a></td>
                                                     </tr>
                                                     <tr>
-                                                       
+
                                                         <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
                                                         <td>Jacob</td>
                                                         <td>Jacob</td>
@@ -253,18 +254,18 @@
                                 </div>
                             </div>
                             <!-- [ Hover-table ] end -->
-                            
+
                             <div class="col-md-6"></div>
                             <form>
-                               
+
                             </form>
                         </div>
-        
+
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Açıklama Ekleyiniz</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" column="200" rows="6" ></textarea>
             <button type="button" class="btn btn-square btn-dark">Açıklamayı Kaydet</button>
-        </div>  
+        </div>
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
@@ -275,7 +276,7 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    
+
                                     <th>Başvuran Profil</th>
                                     <th>Başvuran Ad</th>
                                     <th>Başvuran Soyad</th>
@@ -318,7 +319,7 @@
                                     <td>111111112</td>
                                 </tr>
                             </tbody>
-                            
+
                         </table>
                     </div>
                 </div>
