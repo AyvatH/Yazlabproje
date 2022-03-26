@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class Ogroturumkontrol
 {
@@ -16,7 +17,7 @@ class Ogroturumkontrol
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Session()->has("ogr") && url('ogrgiris')==$request->url())
+        if(Session::has("ogr") && url('ogrgiris')==$request->url())
         {
             return back();
         }
