@@ -19,6 +19,7 @@ class Danoturumkontrol
      */
     public function handle(Request $request, Closure $next)
     {
+        // dd(url('dngiris'));
         if(Session()->has("dan") && url('dngiris')==$request->url())
         {
             return back();

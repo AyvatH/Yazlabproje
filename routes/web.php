@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('genelgir');
 });
-Route::view('ogrgiris','ogrgiris');
-Route::view('dngiris','dngiris');
+Route::view('ogrgiris','ogrgiris')->middleware("Ogroturumkontrol");
+Route::view('dngiris','dngiris')->middleware("Danoturumkontrol");
 Route::view('sifre','sifre');
 
 Route::view('ograna','ograna');

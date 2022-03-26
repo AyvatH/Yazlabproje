@@ -33,7 +33,13 @@ class ProjeVt extends Controller
     }
     public function liste3()
     {
-        $bilgi2=Proje::get();
+        $bilgi2=Proje::join("ogrenciler","ogrenciler.id","projeoneri.num_id")->get(["projeoneri.*","ogrenciler.ad","ogrenciler.soyad","ogrenciler.no"]);
+
+        // $bilgi2=Proje::join("ogrenciler","ogrenciler.id","projeoneri.num_id")
+        //              ->join("atama","atama.ogr_id","ogrenciler.id")
+        //               ->get(["projeoneri.*","ogrenciler.ad","ogrenciler.soyad","ogrenciler.no","atama.id as atama_id"]);
+
+        // dd($bilgi2);
         $bilgi="Proje Öneri";
         return view('danproje',compact('bilgi2',"bilgi"));
     }
@@ -136,6 +142,7 @@ class ProjeVt extends Controller
     {
         Proje::create
         (["baslik"=>$request->baslik,"amac"=>$request->amac,
+        "num_id"=>Session()->get("ogr")->id,
         "materyal"=>$request->materyal, "durum"=>"Beklemede",
        "anahtar_kelime"=>$request->anahtar1,"anahtar_kelime2"=>$request->anahtar2,"anahtar_kelime3"=>$request->anahtar3,
        "anahtar_kelime4"=>$request->anahtar4,"anahtar_kelime5"=>$request->anahtar5]);
@@ -144,6 +151,7 @@ class ProjeVt extends Controller
 
 
     }
+
         public function ogrgiris(Request $request)
         {
 
