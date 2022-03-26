@@ -111,7 +111,7 @@
                                 {{-- {{ dd("sdsad"); }} --}}
 
                                 <span>{{ session()->get('ogr')->ad.' '.session()->get('ogr')->soyad }}</span>
-                                <a href="genelgir" class="dud-logout" title="Çıkış">
+                                <a href="ogrcikis" class="dud-logout" title="Çıkış">
                                     <i class="feather icon-log-out"></i>
                                 </a>
                             </div>

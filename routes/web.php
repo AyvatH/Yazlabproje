@@ -47,16 +47,17 @@ Route::view('sisprofile','sisprofile');
 
 
 Route::get('/ekle', [ProjeVt::class, 'ekleme']);
-Route::get('ograna', [ProjeVt::class, 'ogranasayfa'])->name("ograna");
+Route::get('ograna', [ProjeVt::class, 'ogranasayfa'])->name("ograna")->middleware("Ogrlogin");
 
 
-Route::post('ogrgir',[ProjeVt::class,'ogrgiris'])->name("ogrhome");
+Route::post('ogrgir',[ProjeVt::class,'ogrgiris'])->name("ogrhome")->middleware("Ogroturumkontrol");;
 
 Route::get('siskontrol',[ProjeVt::class,'liste'])->name("admin.home");
 Route::post('sisogrgun',[ProjeVt::class,'guncelled'])->name("guncel");
 
 Route::get('onayla/{id}',[ProjeVt::class,'guncelle']);
 Route::get('sil/{id}',[ProjeVt::class,'sil']);
+Route::get('ogrcikis',[ProjeVt::class,'ogrcikis']);
 
 Route::get('/listele', [ProjeVt::class, 'listele']);
 Route::post('sisdanekle',[ProjeVt::class,'danekle']);

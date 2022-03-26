@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ogrenci;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+
+
 
 
 
@@ -64,6 +67,7 @@ class ProjeVt extends Controller
         "eposta"=>$request->ogrmail,
         "sifre"=>Hash::make($request->ogrsifre),"sinif"=>$request->ogrsinif,
         "bolum"=>$request->ogrbolum,"fak"=>$request->ogrfak,"tel"=>$request->ogrtel]);
+
         return redirect('sisogrekle');
 
 
@@ -110,6 +114,16 @@ class ProjeVt extends Controller
               return view('ograna');
 
             }
+            public function ogrcikis()
+            {
+
+
+                if(Session::has("ogr"))
+                {
+                    Session::pull("ogr");
+                    return redirect("ogrgiris");
+                }
+              }
 
 
 }
