@@ -52,10 +52,11 @@ Route::get('/ekle', [ProjeVt::class, 'ekleme']);
 
 Route::get('ograna', [ProjeVt::class, 'ogranasayfa'])->name("ograna")->middleware("Ogrlogin");
 Route::get('dananasay', [ProjeVt::class, 'dananasayfa'])->name("dananasay")->middleware("Danlogin");
+Route::get('sisprofile', [ProjeVt::class, 'yonanasayfa'])->name("sisprofile");
 
 
 Route::post('ogrgir',[ProjeVt::class,'ogrgiris'])->name("ogrhome")->middleware("Ogroturumkontrol");
-
+Route::post('admingiris',[ProjeVt::class,'yongiris'])->name("admingiriss");
 Route::post('dngiris',[ProjeVt::class,'dangiris'])->name("danhome")->middleware("Danoturumkontrol");
 
 
@@ -74,6 +75,7 @@ Route::get('sil2/{id}',[ProjeVt::class,'sil2']);
 
 Route::get('ogrcikis',[ProjeVt::class,'ogrcikis']);
 Route::get('dancikis',[ProjeVt::class,'dancikis']);
+Route::get('yoncikis',[ProjeVt::class,'yoncikis']);
 
 Route::get('/listele', [ProjeVt::class, 'listele']);
 Route::post('sisdanekle',[ProjeVt::class,'danekle']);

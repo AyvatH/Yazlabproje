@@ -108,8 +108,8 @@
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
                                 <img src="images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
-                                <span>Sistem Yöneticisi</span>
-                                <a href="admingiris" class="dud-logout" title="Logout">
+                               <span>{{ session()->get('yon')->unvan}}</span>
+                                <a href="yoncikis" class="dud-logout" title="Logout">
                                     <i class="feather icon-log-out"></i>
                                 </a>
                             </div>

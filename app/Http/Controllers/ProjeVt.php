@@ -6,6 +6,7 @@ use App\Models\Danisman;
 use Illuminate\Http\Request;
 use App\Models\Ogrenci;
 use App\Models\Proje;
+use App\Models\Yonetici;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -265,5 +266,59 @@ class ProjeVt extends Controller
                       }
                     }
 
+
+                    public function yongiris(Request $request)
+              {
+
+
+                  $request->validate([
+                      "eposta" => "required",
+                      "sifre" => "required"
+                  ]);
+
+                  $dataa=Yonetici::where("eposta","=",$request->eposta)->first();
+                  // dd($dataa);
+                  if($dataa)
+                  {
+                      if(Hash::check($request->sifre,$dataa->sifre))
+                      {
+                      Session()->put('yon',$dataa);
+                      return redirect(route("sisprofile"));
+                      }
+                      else
+                  {
+                      print_r("hata sifre");
+                      return back()->with("Hata","Yanlış şifre girdiniz!");
+                  }
+
+                  }
+                  else
+                  {
+                      print_r("hata no");
+                      return back()->with("Hata","Yanlış numara girdiniz!");
+                  }
+
+
+
+                }
+
+                public function yonanasayfa()
+                {
+
+
+
+                    return view('sisprofile');
+
+                  }
+                  public function yoncikis()
+            {
+
+
+                if(Session::has("yon"))
+                {
+                    Session::pull("yon");
+                    return redirect("admingiris");
+                }
+              }
 
 }

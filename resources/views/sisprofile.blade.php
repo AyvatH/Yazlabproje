@@ -48,6 +48,7 @@
                     <i ><img src="{{url('images/logoo.png')}}" width="50px" height="50px"></i>
                     </div>
                      <span class="b-title">KOU</span>
+
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
@@ -109,8 +110,9 @@
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
                                 <img src="images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
-                                <span>Merhaba, {}</span>
-                                <a href="admingiris" class="dud-logout" title="Logout">
+
+                               <span>{{ session()->get('yon')->unvan}}</span>
+                                <a href="yoncikis" class="dud-logout" title="Logout">
                                     <i class="feather icon-log-out"></i>
                                 </a>
                             </div>
@@ -164,18 +166,18 @@
                                                     <form>
                                                         <div class="form-group">
                                                             <label for="exampleNameSurname">Ad</label>
-                                                            <input type="text" class="form-control" id="exampleNameSurname" placeholder="Ad">
+                                                            <input type="text" class="form-control" value="{{ session()->get('yon')->ad}}" readonly id="exampleNameSurname" placeholder="Ad">
                                                         </div><div class="form-group">
                                                             <label for="exampleNameSurname">Soyad</label>
-                                                            <input type="text" class="form-control" id="exampleNameSurname" placeholder="Soyad">
+                                                            <input type="text" class="form-control" value="{{ session()->get('yon')->soyad}}" readonly id="exampleNameSurname" placeholder="Soyad">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Mail Adresi</label>
-                                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@kocaeli.edu.tr">
+                                                            <input type="email" class="form-control" value="{{ session()->get('yon')->eposta}}" readonly id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@kocaeli.edu.tr">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputPassword1">Ünvan</label>
-                                                            <input type="text" class="form-control" id="examplemajor" placeholder="Öğretim Görevlisi">
+                                                            <input type="text" class="form-control" value="{{ session()->get('yon')->unvan}}" readonly id="examplemajor" placeholder="Öğretim Görevlisi">
                                                         </div>
 
                                                     </form>
