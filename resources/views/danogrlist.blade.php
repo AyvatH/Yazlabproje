@@ -101,7 +101,7 @@
                             <div class="pro-head">
                                 <img src="images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
                                 <span>John Doe</span>
-                                <a href="dngiris" class="dud-logout" title="Çıkış">
+                                <a href="dancikis" class="dud-logout" title="Çıkış">
                                     <i class="feather icon-log-out"></i>
                                 </a>
                             </div>

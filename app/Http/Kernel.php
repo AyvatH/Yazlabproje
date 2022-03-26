@@ -54,8 +54,10 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
+        'Danoturumkontrol' => \App\Http\Middleware\Danoturumkontrol::class,
         'Ogroturumkontrol' => \App\Http\Middleware\Ogroturumkontrol::class,
        'Ogrlogin' => \App\Http\Middleware\Ogrkontrol::class,
+       'Danlogin' => \App\Http\Middleware\Dankontrol::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

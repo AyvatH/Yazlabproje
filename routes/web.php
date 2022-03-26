@@ -21,22 +21,22 @@ Route::get('/', function () {
 Route::view('ogrgiris','ogrgiris');
 Route::view('dngiris','dngiris');
 Route::view('sifre','sifre');
+
 Route::view('ograna','ograna');
-Route::view('ogrprofil','ogrprofil');
-Route::view('ogrproje','ogrproje');
-Route::view('ogrrapor','ogrrapor');
-Route::view('ogrtez','ogrtez');
-Route::view('ogrbasvurular','ogrbasvurular');
+Route::view('ogrprofil','ogrprofil')->middleware("Ogrlogin");
+Route::view('ogrproje','ogrproje')->middleware("Ogrlogin");
+Route::view('ogrrapor','ogrrapor')->middleware("Ogrlogin");
+Route::view('ogrtez','ogrtez')->middleware("Ogrlogin");
+Route::view('ogrbasvurular','ogrbasvurular')->middleware("Ogrlogin");
+
 Route::view('dananasay','dananasay');
-Route::view('danbasvurular','danbasvurular');
-Route::view('danogrlist','danogrlist');
+Route::view('danbasvurular','danbasvurular')->middleware("Danlogin");
+Route::view('danogrlist','danogrlist')->middleware("Danlogin");
+Route::view('danproje','danproje')->middleware("Danlogin");
+Route::view('danrapor','danrapor')->middleware("Danlogin");
+Route::view('dantez','dantez')->middleware("Danlogin");
+Route::view('danprofil','danprofil')->middleware("Danlogin");
 
-Route::view('danproje','danproje');
-Route::view('danrapor','danrapor');
-Route::view('dantez','dantez');
-
-
-Route::view('danprofil','danprofil');
 Route::view('admingiris','admingiris');
 Route::view('siskontrol','siskontrol');
 Route::view('sisogrekle','sisogrekle');
@@ -47,10 +47,17 @@ Route::view('sisprofile','sisprofile');
 
 
 Route::get('/ekle', [ProjeVt::class, 'ekleme']);
+
+
 Route::get('ograna', [ProjeVt::class, 'ogranasayfa'])->name("ograna")->middleware("Ogrlogin");
+Route::get('dananasay', [ProjeVt::class, 'dananasayfa'])->name("dananasay")->middleware("Danlogin");
 
 
-Route::post('ogrgir',[ProjeVt::class,'ogrgiris'])->name("ogrhome")->middleware("Ogroturumkontrol");;
+Route::post('ogrgir',[ProjeVt::class,'ogrgiris'])->name("ogrhome")->middleware("Ogroturumkontrol");
+
+Route::post('dngiris',[ProjeVt::class,'dangiris'])->name("danhome")->middleware("Danoturumkontrol");
+
+
 
 Route::get('siskontrol',[ProjeVt::class,'liste'])->name("admin.home");
 Route::post('sisogrgun',[ProjeVt::class,'guncelled'])->name("guncel");
@@ -58,6 +65,7 @@ Route::post('sisogrgun',[ProjeVt::class,'guncelled'])->name("guncel");
 Route::get('onayla/{id}',[ProjeVt::class,'guncelle']);
 Route::get('sil/{id}',[ProjeVt::class,'sil']);
 Route::get('ogrcikis',[ProjeVt::class,'ogrcikis']);
+Route::get('dancikis',[ProjeVt::class,'dancikis']);
 
 Route::get('/listele', [ProjeVt::class, 'listele']);
 Route::post('sisdanekle',[ProjeVt::class,'danekle']);

@@ -163,44 +163,49 @@
                                             <div class="row">
                                                 <div class="col-md-6">
 
-                                                    <form>
+                                                    <form id="addCustomer"  class="form-group" method="POST" >
+                                                        @csrf <!-- {{ csrf_field() }} -->
                                                         <div class="form-group">
                                                             <label for="exampleNameSurname">Ad</label>
-                                                            <input type="text" class="form-control" id="exampleNameSurname" placeholder="Ad">
+                                                            <input type="text" class="form-control" name="ad" id="exampleNameSurname" placeholder="Ad">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleNameSurname">Soyad</label>
-                                                            <input type="text" class="form-control" id="exampleNameSurname" placeholder="Soyad">
+                                                            <input type="text" class="form-control" name="soyad" id="exampleNameSurname" placeholder="Soyad">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Mail Adresi</label>
-                                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@kocaeli.edu.tr">
+                                                            <input type="email" class="form-control" name="eposta" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@kocaeli.edu.tr">
                                                         </div>
 
 
 
                                                         <div class="col-sm-12">
-                                                            <div class="card">
-                                                                <button type="button" class="btn btn-outline-primary" title="Projeyi Öner" data-toggle="tooltip">Kaydet ve Bilgileri Gönder</button>
-                                                            </div>
+
                                                         </div>
-                                                    </form>
+
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <form>
+
                                                         <div class="form-group">
                                                             <label>Ünvan</label>
-                                                            <input type="text" class="form-control" placeholder="Ünvan">
+                                                            <input type="text" class="form-control" name="unvan" placeholder="Ünvan">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Sicil No</label>
+                                                            <input type="text" class="form-control" name="sicilno" id="sicilno" placeholder="1834">
                                                         </div>
 
 
                                                         <div class="form-group">
                                                             <label for="exampleInputPassword1">Şifre</label>
-                                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre"><div class="form-group">
+                                                            <input type="password" class="form-control" name="sifre" id="exampleInputPassword1" placeholder="Şifre"><div class="form-group">
 
                                                             </div>
                                                         </div>
-
+                                                        <div class="card">
+                                                            <button type="submit" class="btn btn-outline-primary" title="Projeyi Öner" data-toggle="tooltip">Kaydet ve Bilgileri Gönder</button>
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </div>

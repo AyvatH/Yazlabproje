@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Danisman;
 use Illuminate\Http\Request;
 use App\Models\Ogrenci;
 use Illuminate\Support\Facades\Hash;
@@ -72,6 +73,17 @@ class ProjeVt extends Controller
 
 
     }
+    public function danekle(Request $request)
+    {
+        Danisman::create
+        (["ad"=>$request->ad,"soyad"=>$request->soyad,
+        "eposta"=>$request->eposta, "sifre"=>Hash::make($request->sifre),
+       "unvan"=>$request->unvan, "sicilno"=>$request->sicilno]);
+
+        return redirect('sisdanekle');
+
+
+    }
         public function ogrgiris(Request $request)
         {
 
@@ -114,6 +126,7 @@ class ProjeVt extends Controller
               return view('ograna');
 
             }
+
             public function ogrcikis()
             {
 
@@ -124,6 +137,65 @@ class ProjeVt extends Controller
                     return redirect("ogrgiris");
                 }
               }
+
+
+
+
+
+
+
+              public function dangiris(Request $request)
+              {
+
+
+                  $request->validate([
+                      "sicilno" => "required",
+                      "sifre" => "required"
+                  ]);
+
+                  $dataa=Danisman::where("sicilno","=",$request->sicilno)->first();
+                  // dd($dataa);
+                  if($dataa)
+                  {
+                      if(Hash::check($request->sifre,$dataa->sifre))
+                      {
+                      Session()->put('dan',$dataa);
+                      return redirect(route("dananasay"));
+                      }
+                      else
+                  {
+                      print_r("hata sifre");
+                      return back()->with("Hata","Yanlış şifre girdiniz!");
+                  }
+
+                  }
+                  else
+                  {
+                      print_r("hata no");
+                      return back()->with("Hata","Yanlış numara girdiniz!");
+                  }
+
+
+
+                }
+                public function dananasayfa()
+                {
+
+
+
+                    return view('dananasay');
+
+                  }
+                  public function dancikis()
+                  {
+
+
+                      if(Session::has("dan"))
+                      {
+                          Session::pull("dan");
+                          return redirect("dngiris");
+                      }
+                    }
 
 
 }
