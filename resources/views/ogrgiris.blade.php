@@ -42,7 +42,7 @@
                     </div>
                     <form id="addCustomer"  class="form-group" method="POST" action="{{route('ogrhome')}}" >
                         @csrf <!-- {{ csrf_field() }} -->
-                    <h3 class="mb-4">Giriş</h3>
+                    <h3 class="mb-4">Ögrenci Giriş</h3>
                     <div class="input-group mb-3">
                         <input type="text" name="no" class="form-control" placeholder="Ögrenci No">
                     </div>

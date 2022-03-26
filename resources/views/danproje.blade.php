@@ -101,7 +101,7 @@
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
                                 <img src="images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
-                                <span>John Doe</span>
+                                <span>{{ session()->get('dan')->ad.' '.session()->get('dan')->soyad }}</span>
                                 <a href="dancikis" class="dud-logout" title="Çıkış">
                                     <i class="feather icon-log-out"></i>
                                 </a>
@@ -208,46 +208,51 @@
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>Profil</th>
+
                                                         <th>Ad</th>
                                                         <th>Soyad</th>
                                                         <th>Numara</th>
-                                                        <th>Başvuru Türü</th>
-                                                        <th>Yüklenen Belgeler</th>
+                                                        <th>Proje Başlıgı</th>
+                                                        <th>Onayla</th>
+                                                        <th>İçerigi Gör</th>
+                                                        <th>Reddet</th>
+                                                        <th>Açıklama</th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
+                                                <tbody >
 
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
-                                                        <td>Jacob</td>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                        <td>pdf ler</td>
-                                                        <td><a href="#!" class="label theme-bg2 text-white f-12">Reddet</a><a href="#!" class="label theme-bg text-white f-12">Onayla</a><a href="#!" class="label theme-bg text-white f-12">Açıklama Yap</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
-                                                        <td>Mark</td>
-                                                        <td>Jacob</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                        <td>pdf ler</td>
-                                                        <td><a href="#!" class="label theme-bg2 text-white f-12">Reddet</a><a href="#!" class="label theme-bg text-white f-12">Onayla</a><a href="#!" class="label theme-bg text-white f-12">Açıklama Yap</a></td>
-                                                    </tr>
-                                                    <tr>
+                                                    @forelse ($bilgi2 as $key2 => $val2)
+                                                    <input  type="hidden" class="form-control" name="kad"  {{ $akey2=$val2 ['id']}} placeholder="Kullanıcı Adı">
 
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
-                                                        <td>Jacob</td>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                        <td>pdf ler</td>
-                                                        <td><a href="#!" class="label theme-bg2 text-white f-12">Reddet</a><a href="#!" class="label theme-bg text-white f-12">Onayla</a><a href="#!" class="label theme-bg text-white f-12">Açıklama Yap</a></td>
-                                                    </tr>
-                                                </tbody>
+                                                    <tr>
+                                                        <td>{{  $val2 ['ad']}}</td>
+                                                        <td>{{ $val2 ['soyad'] }}</td>
+                                                         <td>{{ $val2 ["no"]}}</td>
+                                                         <td>{{ $val2 ["baslik"]}}</td>
+                                                        <td>
+                                                            <a href="{{url("duzenle/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Onayla</a>
+
+                                                         </td>
+                                                         <td>
+                                                            <a href="{{url("duzenle/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">İçerigi Gör</a>
+
+                                                         </td>
+                                                         <td>   <a href="{{url("sil2/$akey2")}}" type="submit" class="label theme-bg2 text-white f-12">Reddet</a>
+                                        </td>
+                                        <td>
+                                            <a href="{{url("duzenle/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Açıklama</a>
+
+                                         </td>
+                                    </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="4">Veri bulunamadı</td>
+                                        </tr>
+                                        @endforelse
+
+
+                                        </tbody>
                                             </table>
                                         </div>
                                     </div>

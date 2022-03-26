@@ -159,7 +159,7 @@
                                         <h5>Öğrenciye Mesaj</h5>
                                     </div>
                                     <div class="card-block">
-                                        <p>"Selamun Hello."
+                                        <p>
                                         </p>
                                     </div>
                                 </div>

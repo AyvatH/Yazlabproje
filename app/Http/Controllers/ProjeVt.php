@@ -24,6 +24,19 @@ class ProjeVt extends Controller
         $bilgi2=Danisman::get();
         return view('siskontrol',compact('bilgi','bilgi2'));
     }
+
+    public function liste2()
+    {
+        $bilgi2=Proje::get();
+        $bilgi="Proje Öneri";
+        return view('ogrbasvurular',compact('bilgi2',"bilgi"));
+    }
+    public function liste3()
+    {
+        $bilgi2=Proje::get();
+        $bilgi="Proje Öneri";
+        return view('danproje',compact('bilgi2',"bilgi"));
+    }
     public function sil($id)
     {
         $veri=$id;

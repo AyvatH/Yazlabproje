@@ -42,7 +42,7 @@
                     </div>
                     <form id="addCustomer"  class="form-group" method="POST" action="{{route('danhome')}}" >
                         @csrf <!-- {{ csrf_field() }} -->
-                    <h3 class="mb-4">Giriş</h3>
+                    <h3 class="mb-4">Danışman Giriş</h3>
                     <div class="input-group mb-3">
                         <input type="text" name="sicilno" class="form-control" placeholder="Sicil No">
                     </div>

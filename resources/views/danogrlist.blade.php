@@ -100,7 +100,7 @@
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
                                 <img src="images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
-                                <span>John Doe</span>
+                                <span>{{ session()->get('dan')->ad.' '.session()->get('dan')->soyad }}</span>
                                 <a href="dancikis" class="dud-logout" title="Çıkış">
                                     <i class="feather icon-log-out"></i>
                                 </a>

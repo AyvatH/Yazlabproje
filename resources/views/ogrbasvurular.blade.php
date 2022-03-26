@@ -161,7 +161,7 @@
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>Profil</th>
+
                                                         <th>Ad</th>
                                                         <th>Soyad</th>
                                                         <th>Numara</th>
@@ -169,40 +169,26 @@
                                                         <th>Başvuru Durumu</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody >
+
+                                                    @forelse ($bilgi2 as $key2 => $val2)
+                                                    <input  type="hidden" class="form-control" name="kad"  {{ $akey2=$val2 ['id']}} placeholder="Kullanıcı Adı">
+
                                                     <tr>
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
-                                                        <td>Mark</td>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                        <td>Bekliyor...</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
-                                                        <td>Jacob</td>
-                                                        <td>Mark</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                        <td>Bekliyor...</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
-                                                        <td>Larry</td>
-                                                        <td>Mark</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                        <td>Bekliyor...</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
-                                                        <td>Hasan </td>
-                                                        <td>Aywat</td>
-                                                        <td>123123123</td>
-                                                        <td>Proje Önerisi</td>
-                                                        <td>Bekliyor...</td>
-                                                    </tr>
-                                                </tbody>
+                                                        <td>{{  session()->get('ogr')->ad}}</td>
+                                                        <td>{{ session()->get('ogr')->soyad }}</td>
+                                                        <td>{{ session()->get('ogr')->no }}</td>
+                                                         <td>{{ $bilgi}}</td>
+                                                         <td>{{ $val2 ["durum"]}}</td>
+                                                      </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="4">Veri bulunamadı</td>
+                                        </tr>
+                                        @endforelse
+
+
+                                        </tbody>
                                             </table>
                                         </div>
                                     </div>

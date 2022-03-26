@@ -98,7 +98,7 @@
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
                                 <img src="images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
-                                <span>John Doe</span>
+                                <span>{{ session()->get('dan')->ad.' '.session()->get('dan')->soyad }}</span>
                                 <a href="dancikis" class="dud-logout" title="Çıkış">
                                     <i class="feather icon-log-out"></i>
                                 </a>
@@ -153,19 +153,19 @@
                                                     <form>
                                                         <div class="form-group">
                                                             <label for="exampleNameSurname">Ad</label>
-                                                            <input type="text" class="form-control" id="exampleNameSurname" placeholder="Ad-Soyad">
+                                                            <input type="text" class="form-control" value=" {{ session()->get('dan')->ad}}" readonly id="exampleNameSurname" placeholder="Ad-Soyad">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleNameSurname">Soyad</label>
-                                                            <input type="text" class="form-control" id="exampleNameSurname" placeholder="Ad-Soyad">
+                                                            <input type="text" class="form-control" value=" {{ session()->get('dan')->soyad}}" readonly id="exampleNameSurname" placeholder="Ad-Soyad">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Mail Adresi</label>
-                                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Mail adresi">
+                                                            <input type="email" class="form-control" id="exampleInputEmail1" readonly value=" {{ session()->get('dan')->eposta}}" aria-describedby="emailHelp" placeholder="Mail adresi">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputPassword1">Ünvan</label>
-                                                            <input type="text" class="form-control" id="examplemajor" placeholder="Öğretim Görevlisi">
+                                                            <input type="text" class="form-control" id="examplemajor" readonly value=" {{ session()->get('dan')->unvan}}" placeholder="Öğretim Görevlisi">
                                                         </div>
 
                                                     </form>
