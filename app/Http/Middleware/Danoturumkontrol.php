@@ -20,7 +20,7 @@ class Danoturumkontrol
     public function handle(Request $request, Closure $next)
     {
         // dd(url('dngiris'));
-        if(Session()->has("dan") && url('dngiris')==$request->url())
+        if(Session()->has("dan") && (url('ogrgiris')==$request->url()||url('dngiris')==$request->url()||url('admingiris')==$request->url()||url('/')==$request->url()))
         {
             return back();
         }

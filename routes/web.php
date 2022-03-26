@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('genelgir');
-});
-Route::view('ogrgiris','ogrgiris')->middleware("Ogroturumkontrol");
-Route::view('dngiris','dngiris')->middleware("Danoturumkontrol");
+})->middleware("Danoturumkontrol","Ogroturumkontrol","Yonoturumkontrol");
+Route::view('ogrgiris','ogrgiris')->middleware("Danoturumkontrol","Ogroturumkontrol","Yonoturumkontrol");
+Route::view('dngiris','dngiris')->middleware("Danoturumkontrol","Ogroturumkontrol","Yonoturumkontrol");
 Route::view('sifre','sifre');
 
 Route::view('ograna','ograna');
@@ -37,7 +37,7 @@ Route::view('danrapor','danrapor')->middleware("Danlogin");
 Route::view('dantez','dantez')->middleware("Danlogin");
 Route::view('danprofil','danprofil')->middleware("Danlogin");
 
-Route::view('admingiris','admingiris')->middleware("Yonoturumkontrol");
+Route::view('admingiris','admingiris')->middleware("Danoturumkontrol","Ogroturumkontrol","Yonoturumkontrol");
 Route::view('siskontrol','siskontrol')->middleware("Yonlogin");
 Route::view('sisogrekle','sisogrekle')->middleware("Yonlogin");
 Route::view('sisdanekle','sisdanekle')->middleware("Yonlogin");
@@ -55,9 +55,9 @@ Route::get('dananasay', [ProjeVt::class, 'dananasayfa'])->name("dananasay")->mid
 Route::get('sisprofile', [ProjeVt::class, 'yonanasayfa'])->name("sisprofile")->middleware("Yonlogin");
 
 
-Route::post('ogrgir',[ProjeVt::class,'ogrgiris'])->name("ogrhome")->middleware("Ogroturumkontrol");
-Route::post('admingiris',[ProjeVt::class,'yongiris'])->name("admingiriss")->middleware("Yonoturumkontrol");
-Route::post('dngiris',[ProjeVt::class,'dangiris'])->name("danhome")->middleware("Danoturumkontrol");
+Route::post('ogrgir',[ProjeVt::class,'ogrgiris'])->name("ogrhome")->middleware("Danoturumkontrol","Ogroturumkontrol","Yonoturumkontrol");
+Route::post('admingiris',[ProjeVt::class,'yongiris'])->name("admingiriss")->middleware("Danoturumkontrol","Ogroturumkontrol","Yonoturumkontrol");
+Route::post('dngiris',[ProjeVt::class,'dangiris'])->name("danhome")->middleware("Danoturumkontrol","Ogroturumkontrol","Yonoturumkontrol");
 
 
 

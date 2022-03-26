@@ -17,7 +17,7 @@ class Ogroturumkontrol
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Session::has("ogr") && url('ogrgiris')==$request->url())
+        if(Session::has("ogr") && (url('ogrgiris')==$request->url()||url('dngiris')==$request->url()||url('admingiris')==$request->url()||url('/')==$request->url()))
         {
             return back();
         }

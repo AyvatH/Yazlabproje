@@ -16,7 +16,7 @@ class Yoneticioturumkontrol
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Session()->has("yon") && url('admingiris')==$request->url())
+        if(Session()->has("yon") && (url('ogrgiris')==$request->url()||url('dngiris')==$request->url()||url('admingiris')==$request->url()||url('/')==$request->url()))
         {
             return back();
         }

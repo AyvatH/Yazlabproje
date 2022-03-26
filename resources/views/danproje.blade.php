@@ -213,10 +213,11 @@
                                                         <th>Soyad</th>
                                                         <th>Numara</th>
                                                         <th>Proje Başlıgı</th>
-                                                        <th>Onayla</th>
                                                         <th>İçerigi Gör</th>
-                                                        <th>Reddet</th>
+                                                        <th>Onayla</th>
                                                         <th>Açıklama</th>
+                                                        <th>Reddet</th>
+
                                                         <th></th>
                                                     </tr>
                                                 </thead>
@@ -230,20 +231,22 @@
                                                         <td>{{ $val2 ['soyad'] }}</td>
                                                          <td>{{ $val2 ["no"]}}</td>
                                                          <td>{{ $val2 ["baslik"]}}</td>
+                                                         <td>
+                                                            <a href="{{url("duzenle/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">İçerigi Gör</a>
+
+                                                         </td>
                                                         <td>
                                                             <a href="{{url("duzenle/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Onayla</a>
 
                                                          </td>
                                                          <td>
-                                                            <a href="{{url("duzenle/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">İçerigi Gör</a>
+                                                            <a href="{{url("duzenle/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Açıklama</a>
 
                                                          </td>
+
                                                          <td>   <a href="{{url("sil2/$akey2")}}" type="submit" class="label theme-bg2 text-white f-12">Reddet</a>
                                         </td>
-                                        <td>
-                                            <a href="{{url("duzenle/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Açıklama</a>
 
-                                         </td>
                                     </tr>
                                         @empty
                                         <tr>
