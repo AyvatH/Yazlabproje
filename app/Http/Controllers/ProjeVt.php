@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Danisman;
 use Illuminate\Http\Request;
 use App\Models\Ogrenci;
+use App\Models\Proje;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -115,6 +116,18 @@ class ProjeVt extends Controller
        "unvan"=>$request->unvan, "sicilno"=>$request->sicilno]);
 
         return redirect('sisdanekle');
+
+
+    }
+    public function ogrprojekle(Request $request)
+    {
+        Proje::create
+        (["baslik"=>$request->baslik,"amac"=>$request->amac,
+        "materyal"=>$request->materyal, "durum"=>"Beklemede",
+       "anahtar_kelime"=>$request->anahtar1,"anahtar_kelime2"=>$request->anahtar2,"anahtar_kelime3"=>$request->anahtar3,
+       "anahtar_kelime4"=>$request->anahtar4,"anahtar_kelime5"=>$request->anahtar5]);
+
+        return redirect('ogrproje');
 
 
     }

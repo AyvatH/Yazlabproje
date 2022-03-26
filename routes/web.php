@@ -76,3 +76,5 @@ Route::get('dancikis',[ProjeVt::class,'dancikis']);
 Route::get('/listele', [ProjeVt::class, 'listele']);
 Route::post('sisdanekle',[ProjeVt::class,'danekle']);
 Route::post('sisogrekle',[ProjeVt::class,'ogrekle']);
+
+Route::post('ogrproje',[ProjeVt::class,'ogrprojekle']);

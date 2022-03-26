@@ -142,28 +142,27 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
-
+                            <form id="addCustomer"  class="form-group" method="POST" >
+                                @csrf <!-- {{ csrf_field() }} -->
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h5>Proje Başlığı</h5>
                                         <hr>
-                                        <input class="mb-3 form-control form-control-lg" type="text" placeholder="Proje Başlığı">
+                                        <input class="mb-3 form-control form-control-lg" type="text" name="baslik" placeholder="Proje Başlığı">
                                         <hr>
                                         <h5>Proje Amacı, Önem Ve Kapsamı</h5>
                                         <hr>
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1">Minimum 200 Karakter Olmalıdır</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" column="200" rows="6" ></textarea>
-                                            <button type="button" class="btn btn-square btn-dark">Açıklamayı Kaydet</button>
+                                            <textarea class="form-control" name="amac" id="exampleFormControlTextarea1" column="200" rows="6" ></textarea>
                                         </div>
                                         <hr>
                                         <h5>Yöntem Ve Araştırma Kaynakları</h5>
                                         <hr>
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1">Minimum 300 Karakter Olmalıdır</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" column="200" rows="6" ></textarea>
-                                            <button type="button" class="btn btn-square btn-dark">Açıklamayı Kaydet</button>
+                                            <textarea class="form-control" name="materyal" id="exampleFormControlTextarea1" column="200" rows="6" ></textarea>
                                         </div>
                                         <hr>
                                     </div>
@@ -171,11 +170,11 @@
 
                                         <h5>Projeyi Anlatan 5 Anahtar Kelime</h5>
                                         <hr>
-                                        <input class="mb-3 form-control form-control-lg" type="text" placeholder="Anahtar Kelime-1">
-                                        <input class="mb-3 form-control form-control-lg" type="text" placeholder="Anahtar Kelime-2">
-                                        <input class="mb-3 form-control form-control-lg" type="text" placeholder="Anahtar Kelime-3">
-                                        <input class="mb-3 form-control form-control-lg" type="text" placeholder="Anahtar Kelime-4">
-                                        <input class="mb-3 form-control form-control-lg" type="text" placeholder="Anahtar Kelime-5">
+                                        <input class="mb-3 form-control form-control-lg" name="anahtar1" type="text" placeholder="Anahtar Kelime-1">
+                                        <input class="mb-3 form-control form-control-lg" name="anahtar2" type="text" placeholder="Anahtar Kelime-2">
+                                        <input class="mb-3 form-control form-control-lg" name="anahtar3" type="text" placeholder="Anahtar Kelime-3">
+                                        <input class="mb-3 form-control form-control-lg" name="anahtar4" type="text" placeholder="Anahtar Kelime-4">
+                                        <input class="mb-3 form-control form-control-lg" name="anahtar5" type="text" placeholder="Anahtar Kelime-5">
                                         <hr>
                                         <hr>
                                         <div class="row">
@@ -186,14 +185,14 @@
                                                     </div>
                                                     <div class="col-sm-12">
                                                         <div class="card">
-                                                            <button type="button" class="btn btn-outline-primary" title="Projeyi Öner" data-toggle="tooltip">Projeyi Öner</button>
+                                                            <button type="submit" class="btn btn-outline-primary" title="Projeyi Öner" data-toggle="tooltip">Projeyi Öner</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <hr>
-
+                                    </form>
                                     </div>
                                 </div>
                             </div>
