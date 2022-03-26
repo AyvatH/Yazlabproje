@@ -42,7 +42,7 @@
                     <div class="mb-4">
                         <i ><img src="{{url('images/logoo.png')}}" width="150px" height="150px"></i>
                     </div>
-                    <h3 class="mb-4">Giriş</h3>
+                    <h3 class="mb-4">Admin Giriş</h3>
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" placeholder="Email">
                     </div>

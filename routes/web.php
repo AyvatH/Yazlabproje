@@ -42,6 +42,7 @@ Route::view('siskontrol','siskontrol');
 Route::view('sisogrekle','sisogrekle');
 Route::view('sisdanekle','sisdanekle');
 Route::view('sisprofile','sisprofile');
+Route::view('sisdandzn','sisdandzn');
 
 
 
@@ -61,9 +62,14 @@ Route::post('dngiris',[ProjeVt::class,'dangiris'])->name("danhome")->middleware(
 
 Route::get('siskontrol',[ProjeVt::class,'liste'])->name("admin.home");
 Route::post('sisogrgun',[ProjeVt::class,'guncelled'])->name("guncel");
+Route::post('sisdandzn',[ProjeVt::class,'guncelled2'])->name("guncel2");
 
 Route::get('onayla/{id}',[ProjeVt::class,'guncelle']);
 Route::get('sil/{id}',[ProjeVt::class,'sil']);
+Route::get('duzenle/{id}',[ProjeVt::class,'guncelle2']);
+Route::get('sil2/{id}',[ProjeVt::class,'sil2']);
+
+
 Route::get('ogrcikis',[ProjeVt::class,'ogrcikis']);
 Route::get('dancikis',[ProjeVt::class,'dancikis']);
 

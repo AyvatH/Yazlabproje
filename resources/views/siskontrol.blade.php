@@ -217,33 +217,37 @@
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>#</th>
-                                                            <th>Ad-Soyad</th>
-                                                            <th>Öğrenci Adı-Soyadı</th>
-                                                            <th>Değerlendirme Sonucu</th>
+
+                                                            <th>Ad</th>
+                                                            <th>Soyad</th>
+                                                            <th>Sicil No</th>
+                                                            <th>Düzenle</th>
+                                                            <th>Sil</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-                                                            <td>@fat</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>Larry</td>
-                                                            <td>the Bird</td>
-                                                            <td>@twitter</td>
-                                                        </tr>
+                                                    <tbody >
 
-                                                    </tbody>
+                                                        @forelse ($bilgi2 as $key2 => $val2)
+                                                        <input  type="hidden" class="form-control" name="kad"  {{ $akey2=$val2 ['id']}} placeholder="Kullanıcı Adı">
+
+                                                        <tr>
+                                                            <td>{{  $val2 ['ad']}}</td>
+                                                            <td>{{ $val2 ['soyad'] }}</td>
+                                                             <td>{{ $val2 ["sicilno"]}}</td>
+                                                            <td>
+                                                                <a href="{{url("duzenle/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Düzenle</a>
+
+                                                             </td>
+                                                             <td>   <a href="{{url("sil2/$akey2")}}" type="submit" class="label theme-bg2 text-white f-12">Sil</a>
+                                            </td></tr>
+                                            @empty
+                                            <tr>
+                                                <td colspan="4">Veri bulunamadı</td>
+                                            </tr>
+                                            @endforelse
+
+
+                                            </tbody>
                                                 </table>
                                             </div>
                                         </div>

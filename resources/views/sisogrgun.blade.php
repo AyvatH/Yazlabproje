@@ -166,10 +166,9 @@
 
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <input type="text" value="{{$aakey=$dataa['id']}}" name="id">
                                                     <form id="addCustomer"  class="form-group" method="POST" action="{{route('guncel')}}" >
                                                         @csrf <!-- {{ csrf_field() }} -->
-                                                        <input type="text" value="{{$aakey=$dataa['id']}}" name="id">
+                                                        <input type="hidden" value="{{$aakey=$dataa['id']}}" name="id">
                                                         <div class="form-group">
                                                             <label for="exampleNameSurname">Ad</label>
                                                             <input type="text" class="form-control" name="ad" id="ad" value="{{$dataa->ad}}" placeholder="Ad">

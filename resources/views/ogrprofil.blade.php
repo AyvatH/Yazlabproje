@@ -110,7 +110,7 @@
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
                                 <img src="images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
-                                <span>Öğrenci</span>
+                                <span>{{ session()->get('ogr')->ad.' '.session()->get('ogr')->soyad }}</span>
                                 <a href="ogrcikis" class="dud-logout" title="Çıkış">
                                     <i class="feather icon-log-out"></i>
                                 </a>
@@ -180,23 +180,23 @@
                                                     <form>
                                                         <div class="form-group">
                                                             <label for="exampleNameSurname">Ad</label>
-                                                            <input type="text" class="form-control" id="exampleNameSurname" placeholder="Ad-Soyad">
+                                                            <input type="text" class="form-control" value= "{{session()->get('ogr')->ad}}" readonly id="exampleNameSurname" placeholder="Ad-Soyad">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleNameSurname">Soyad</label>
-                                                            <input type="text" class="form-control" id="exampleNameSurname" placeholder="Ad-Soyad">
+                                                            <input type="text" class="form-control" value= "{{session()->get('ogr')->soyad}}" readonly id="exampleNameSurname" placeholder="Ad-Soyad">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Öğrenci Mail Adresi</label>
-                                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="@kocaeli.edu.tr">
+                                                            <input type="email" class="form-control" id="exampleInputEmail1" value= "{{session()->get('ogr')->eposta}}" readonly aria-describedby="emailHelp" placeholder="@kocaeli.edu.tr">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputPassword1">Öğrenci Numarası</label>
-                                                            <input type="text" class="form-control" id="examplestudentid" placeholder="Öğrenci Numarası">
+                                                            <input type="text" class="form-control" id="examplestudentid" value= "{{session()->get('ogr')->no}}" readonly placeholder="Öğrenci Numarası">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="examplefaculty">Fakülte</label>
-                                                            <input type="text" class="form-control" id="exampleFaculty" aria-describedby="emailHelp" placeholder="Fakülte">
+                                                            <input type="text" class="form-control" id="exampleFaculty" value= "{{session()->get('ogr')->fak}}" readonly aria-describedby="emailHelp" placeholder="Fakülte">
                                                         </div>
 
                                                     </form>
@@ -205,19 +205,19 @@
                                                     <form>
                                                         <div class="form-group">
                                                             <label>Bölüm</label>
-                                                            <input type="text" class="form-control" placeholder="Bölüm">
+                                                            <input type="text" class="form-control" value= "{{session()->get('ogr')->bolum}}" readonly placeholder="Bölüm">
                                                         </div>
                                                         <div class="form-group">
 
 
                                                             <div class="form-group">
                                                                 <label for="examplefaculty">Telefon Numarası</label>
-                                                                <input type="text" class="form-control" id="examplephone" aria-describedby="emailHelp" placeholder="+9005000000000">
+                                                                <input type="text" class="form-control" value= "{{session()->get('ogr')->tel}}" readonly id="examplephone" aria-describedby="emailHelp" placeholder="+9005000000000">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleDanisman">Danışman</label>
-                                                            <input type="text" class="form-control" id="exampleDanisman" aria-describedby="emailHelp" placeholder="Ad-Soyad">
+                                                            <input type="text" class="form-control" value= "{{session()->get('ogr')->danisman}}" readonly id="exampleDanisman" aria-describedby="emailHelp" placeholder="Ad-Soyad">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleDanisman">Danışman EMAIL</label>

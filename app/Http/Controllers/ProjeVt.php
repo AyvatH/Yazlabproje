@@ -20,7 +20,8 @@ class ProjeVt extends Controller
     public function liste()
     {
         $bilgi=Ogrenci::get();
-        return view('siskontrol',compact('bilgi'));
+        $bilgi2=Danisman::get();
+        return view('siskontrol',compact('bilgi','bilgi2'));
     }
     public function sil($id)
     {
@@ -30,6 +31,14 @@ class ProjeVt extends Controller
     return redirect('siskontrol');
 
       }
+      public function sil2($id)
+      {
+          $veri=$id;
+          Danisman::whereId($veri)->delete();
+
+      return redirect('siskontrol');
+
+        }
 
 
       public function guncelle($id)
@@ -41,23 +50,48 @@ class ProjeVt extends Controller
         return view('sisogrgun',compact('dataa','veri'));
 
       }
-      public function guncelled(Request $request)
+      public function guncelle2($id)
+      {
+
+          $veri=$id;
+          $dataa=Danisman::whereId($veri)->first();
+
+          return view('sisdandzn',compact('dataa','veri'));
+
+        }
+        public function guncelled(Request $request)
+        {
+          $request->validate([
+              'ad'=>"required",
+              "soyad" => "required",
+              "eposta" => "required",
+              "no" => "required",
+              "sinif" => "required",
+              "fak" => "required",
+              "bolum" => "required",
+              "tel" => "required",
+              "sifre" => "required"
+          ]);
+          Ogrenci::where('id',$request->id)->update(["ad"=>$request->ad,"soyad"=>$request->soyad,"no"=>$request->no,
+          "eposta"=>$request->eposta,
+          Hash::make($request->sifre),"sinif"=>$request->sinif,
+          "bolum"=>$request->bolum,"fak"=>$request->fak,"tel"=>$request->tel]);
+           return redirect()->route('admin.home');
+
+          }
+      public function guncelled2(Request $request)
       {
         $request->validate([
             'ad'=>"required",
             "soyad" => "required",
             "eposta" => "required",
-            "no" => "required",
-            "sinif" => "required",
-            "fak" => "required",
-            "bolum" => "required",
-            "tel" => "required",
+            "sicilno" => "required",
+            "unvan" => "required",
             "sifre" => "required"
         ]);
-        Ogrenci::where('id',$request->id)->update(["ad"=>$request->ad,"soyad"=>$request->soyad,"no"=>$request->no,
+        Danisman::where('id',$request->id)->update(["ad"=>$request->ad,"soyad"=>$request->soyad,"sicilno"=>$request->sicilno,
         "eposta"=>$request->eposta,
-        "sifre"=>$request->sifre,"sinif"=>$request->sinif,
-        "bolum"=>$request->bolum,"fak"=>$request->fak,"tel"=>$request->tel]);
+        "sifre"=>Hash::make($request->sifre),"unvan"=>$request->unvan]);
          return redirect()->route('admin.home');
 
         }
