@@ -57,6 +57,8 @@ class Kernel extends HttpKernel
         'Danoturumkontrol' => \App\Http\Middleware\Danoturumkontrol::class,
         'Ogroturumkontrol' => \App\Http\Middleware\Ogroturumkontrol::class,
        'Ogrlogin' => \App\Http\Middleware\Ogrkontrol::class,
+       'Yonoturumkontrol' => \App\Http\Middleware\Yoneticioturumkontrol::class,
+       'Yonlogin' => \App\Http\Middleware\Yoneticikontrol::class,
        'Danlogin' => \App\Http\Middleware\Dankontrol::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
