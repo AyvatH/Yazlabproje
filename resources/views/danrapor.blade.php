@@ -100,7 +100,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
-                                <img src="images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                                <img src="images/user/avatar-2.jpg" class="img-radius" alt="User-Profile-Image">
                                 <span>{{ session()->get('dan')->ad.' '.session()->get('dan')->soyad }}</span>
                                 <a href="dancikis" class="dud-logout" title="Çıkış">
                                     <i class="feather icon-log-out"></i>
@@ -220,7 +220,7 @@
                                                 <tbody>
                                                     <tr>
 
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
+                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
                                                         <td>Jacob</td>
                                                         <td>Jacob</td>
                                                         <td>Thornton</td>
@@ -229,7 +229,7 @@
                                                         <td><a href="#!" class="label theme-bg2 text-white f-12">Reddet</a><a href="#!" class="label theme-bg text-white f-12">Onayla</a><a href="#!" class="label theme-bg text-white f-12">Açıklama Yap</a></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
+                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
                                                         <td>Mark</td>
                                                         <td>Jacob</td>
                                                         <td>Otto</td>
@@ -239,7 +239,7 @@
                                                     </tr>
                                                     <tr>
 
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
+                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
                                                         <td>Jacob</td>
                                                         <td>Jacob</td>
                                                         <td>Thornton</td>
@@ -289,30 +289,30 @@
                             </thead>
                             <tbody>
                             <tr>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
+                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
                                     <td>Mark</td>
                                     <td>Otto</td>
                                     <td>11111111</td>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
+                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
                                     <td>Mark</td>
                                     <td>Otto</td>
                                     <td>11111</td>
                                 </tr>
                                 <tr>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
+                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
                                     <td>Mark</td>
                                     <td>Otto</td>
                                     <td>11111111</td>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
+                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
                                     <td>Mark</td>
                                     <td>Otto</td>
                                     <td>111111112</td>
                                 </tr>
-                                <tr><td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
+                                <tr><td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
                                     <td>Mark</td>
                                     <td>Otto</td>
                                     <td>11111111</td>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
+                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
                                     <td>Mark</td>
                                     <td>Otto</td>
                                     <td>111111112</td>

@@ -99,7 +99,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
-                                <img src="images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                                <img src="images/user/avatar-2.jpg" class="img-radius" alt="User-Profile-Image">
                                 <span>{{ session()->get('dan')->ad.' '.session()->get('dan')->soyad }}</span>
                                 <a href="dancikis" class="dud-logout" title="Çıkış">
                                     <i class="feather icon-log-out"></i>
@@ -158,32 +158,33 @@
                                                         <th>Ad</th>
                                                         <th>Soyad</th>
                                                         <th>Numara</th>
-                                                        <th>Başvuru Türü</th>
+                                                        <th>Sınıf</th>
+                                                        <th>E-posta</th>
+
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody >
+
+                                                    @forelse ($bilgi2 as $key2 => $val2)
+                                                    <input  type="hidden" class="form-control" name="kad"  {{ $akey2=$val2 ['id']}} placeholder="Kullanıcı Adı">
+
                                                     <tr>
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
-                                                        <td>Mark</td>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
-                                                        <td>Jacob</td>
-                                                        <td>Mark</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-1.jpg" alt="activity-user"></td>
-                                                        <td>Larry</td>
-                                                        <td>Mark</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
+                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
+                                                        <td>{{  $val2 ['ad']}}</td>
+                                                        <td>{{ $val2 ['soyad'] }}</td>
+                                                         <td>{{ $val2 ["no"]}}</td>
+                                                         <td>{{ $val2 ["sinif"]}}</td>
+                                                         <td>{{ $val2 ["eposta"]}}</td>
+
+                                    </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="4">Veri bulunamadı</td>
+                                        </tr>
+                                        @endforelse
+
+
+                                        </tbody>
                                             </table>
                                         </div>
                                     </div>

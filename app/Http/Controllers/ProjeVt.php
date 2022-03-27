@@ -60,6 +60,19 @@ class ProjeVt extends Controller
         $bilgi="Proje Öneri";
         return view('ogrprofil',compact('bilgi2',"title"));
     }
+    public function liste5()
+    {
+        $bilgi2=Danisman::join("atama","atama.dan_id","danisman.id")->
+                        join("ogrenciler","ogrenciler.id","atama.ogr_id")
+                    ->get(["danisman.*","ogrenciler.eposta","ogrenciler.ad","ogrenciler.soyad","ogrenciler.no","ogrenciler.sinif"]);
+
+        // $bilgi2=Proje::join("ogrenciler","ogrenciler.id","projeoneri.num_id")
+        //              ->join("atama","atama.ogr_id","ogrenciler.id")
+        //               ->get(["projeoneri.*","ogrenciler.ad","ogrenciler.soyad","ogrenciler.no","atama.id as atama_id"]);
+      //  dd($title->ad);
+        $bilgi="Proje Öneri";
+        return view('danogrlist',compact('bilgi2'));
+    }
     public function sil($id)
     {
         $veri=$id;

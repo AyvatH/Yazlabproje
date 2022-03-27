@@ -102,7 +102,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
-                                <img src="images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                                <img src="images/user/avatar-2.jpg" class="img-radius" alt="User-Profile-Image">
                                 <span>{{ session()->get('ogr')->ad.' '.session()->get('ogr')->soyad }}</span>
                                 <a href="ogrcikis" class="dud-logout" title="Çıkış">
                                     <i class="feather icon-log-out"></i>

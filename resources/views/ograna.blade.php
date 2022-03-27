@@ -107,7 +107,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
-                                <img src="images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                                <img src="images/user/avatar-2.jpg" class="img-radius" alt="User-Profile-Image">
                                 {{-- {{ dd("sdsad"); }} --}}
 
                                 <span>{{ session()->get('ogr')->ad.' '.session()->get('ogr')->soyad }}</span>
