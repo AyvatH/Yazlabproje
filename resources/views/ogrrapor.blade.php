@@ -42,7 +42,7 @@
     <nav class="pcoded-navbar">
         <div class="navbar-wrapper">
             <div class="navbar-brand header-logo">
-               <a href="ogranasay" class="b-brand">
+               <a href="ograna" class="b-brand">
                 <div class="b-bg">
                 <i ><img src="{{url('images/logoo.png')}}" width="50px" height="50px"></i>
                 </div>
@@ -131,7 +131,7 @@
                                     <h5 class="m-b-10">Hoşgeldiniz</h5>
                                 </div>
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="ogranasay"><i class="feather icon-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="ograna"><i class="feather icon-home"></i></a></li>
                                     <li class="breadcrumb-item"><a href="javascript:">Rapor Öner</a></li>
                                 </ul>
                             </div>

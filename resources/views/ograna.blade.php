@@ -141,7 +141,7 @@
                                     <h5 class="m-b-10">Hoşgeldiniz</h5>
                                 </div>
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="ogranasay"><i class="feather icon-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="ograna"><i class="feather icon-home"></i></a></li>
                                     <li class="breadcrumb-item"><a href="javascript:">Ana Sayfa</a></li>
                                 </ul>
                             </div>
