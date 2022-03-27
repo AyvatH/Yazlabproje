@@ -44,6 +44,22 @@ class ProjeVt extends Controller
         $bilgi="Proje Öneri";
         return view('danproje',compact('bilgi2',"bilgi"));
     }
+    public function liste4()
+    {
+        $bilgi2=Ogrenci::join("atama","atama.ogr_id","ogrenciler.id")->
+                        join("danisman","danisman.id","atama.dan_id")
+                    ->get(["ogrenciler.*","danisman.eposta","danisman.ad","danisman.soyad"]);
+
+        // $bilgi2=Proje::join("ogrenciler","ogrenciler.id","projeoneri.num_id")
+        //              ->join("atama","atama.ogr_id","ogrenciler.id")
+        //               ->get(["projeoneri.*","ogrenciler.ad","ogrenciler.soyad","ogrenciler.no","atama.id as atama_id"]);
+        foreach ($bilgi2 as $name => $title) {
+             $title;
+        }
+      //  dd($title->ad);
+        $bilgi="Proje Öneri";
+        return view('ogrprofil',compact('bilgi2',"title"));
+    }
     public function sil($id)
     {
         $veri=$id;

@@ -215,13 +215,14 @@
                                                                 <input type="text" class="form-control" value= "{{session()->get('ogr')->tel}}" readonly id="examplephone" aria-describedby="emailHelp" placeholder="+9005000000000">
                                                             </div>
                                                         </div>
+
                                                         <div class="form-group">
                                                             <label for="exampleDanisman">Danışman</label>
-                                                            <input type="text" class="form-control" value= "{{session()->get('ogr')->danisman}}" readonly id="exampleDanisman" aria-describedby="emailHelp" placeholder="Ad-Soyad">
+                                                            <input type="text" class="form-control" value= "{{$title->ad." ".$title->soyad}}" readonly id="exampleDanisman" aria-describedby="emailHelp" placeholder="Ad-Soyad">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleDanisman">Danışman EMAIL</label>
-                                                            <input type="text" class="form-control" id="exampleDanisman" aria-describedby="emailHelp" placeholder="@kocaeli.edu.tr">
+                                                            <input type="text" class="form-control" id="exampleDanisman" value= "{{$title->eposta}}" readonly aria-describedby="emailHelp" placeholder="@kocaeli.edu.tr">
                                                         </div>
 
 
