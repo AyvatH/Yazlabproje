@@ -159,9 +159,9 @@
                         </tr>
                         @endforelse
 
-                                    {{-- @php
+                                    @php
                                     dd($verii);
-                                @endphp --}}
+                                @endphp
                                     <div class="card-body">
                                         <h5>1.Yükleme</h5>
                                         <hr>

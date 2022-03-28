@@ -17,8 +17,9 @@ class Raporkontrol
     public function handle(Request $request, Closure $next)
     {
 
-        if(!Session()->has("ogr"))
+        if(Session()->has("oneri"))
         {
+
             return redirect("ogrgiris");
         }
         return $next($request);
