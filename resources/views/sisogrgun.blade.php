@@ -214,11 +214,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="form-group">
-                                                            <label for="exampleInputPassword1">Şifre</label>
-                                                            <input type="password" class="form-control" id="sifre" name="sifre" value={{$dataa->sifre}} placeholder="Şifre"><div class="form-group">
 
-                                                            </div>
                                                         </div>
                                                         <div class="col-sm-12">
                                                             <div class="card">

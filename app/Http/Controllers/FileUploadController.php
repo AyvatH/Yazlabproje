@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ogrenci;
 use App\Models\Projerapor;
 use Illuminate\Http\Request;
 
@@ -26,18 +27,29 @@ class FileUploadController extends Controller
     public function fileUploadPost(Request $request)
     {
         $request->validate([
-            'file' => 'required|max:2048',
+            'file' => 'required|max:2048'],
+            ['file.required'=>'Fotoğraf eksik.'
+
         ]);
 
         $fileName = time().'.'.$request->file->extension();
 
-        $request->file->move(public_path('uploads'), $fileName);
+        $request->file->move(public_path('images'), $fileName);
+        Ogrenci::where('id',$request->id)->update(["foto"=>"images/".$fileName]);
 
         return back()
-            ->with('success','You have successfully upload file.')
+            ->with('success','Fotoğraf başarıyla yüklendi.')
             ->with('file',$fileName);
 
+
     }
+
+
+
+
+
+
+
     public function fileUploadwordPost(Request $request)
     {
         $request->validate([
@@ -59,7 +71,17 @@ class FileUploadController extends Controller
         $request->validate([
             'file' => 'required|max:2048',
             'file2' => 'required|max:2048',
-        ]);
+            'file3' => 'required|max:2048',
+            'file4' => 'required|max:2048',
+            'file5' => 'required|max:2048',
+            'file6' => 'required|max:2048',
+        ],
+    ['file.required'=>'1.Gönderme Eksik',
+    'file2.required'=>'2.Gönderme Eksik',
+    'file3.required'=>'3.Gönderme Eksik',
+    'file4.required'=>'4.Gönderme Eksik',
+    'file5.required'=>'5.Gönderme Eksik',
+    'file6.required'=>'6.Gönderme Eksik',]);
 
         $fileName = time().'.'.$request->file->extension();
         $fileName2 = time().'.'.$request->file2->extension();
@@ -82,7 +104,7 @@ class FileUploadController extends Controller
 
 
         return back()
-            ->with('success','You have successfully upload file.')
+            ->with('success','Başarıyla dosyaları gönderdiniz.')
             ->with('file',$fileName);
 
     }

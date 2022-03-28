@@ -193,13 +193,9 @@
                                                         </div>
 
 
-                                                        <div class="form-group">
-                                                            <label for="exampleInputPassword1">Şifre</label>
-                                                            <input type="password" class="form-control" name="sifre" value="{{$dataa->sifre}}" id="exampleInputPassword1" placeholder="Şifre"><div class="form-group">
 
-                                                            </div>
                                                             <div class="form-group">
-                                                                <label for="exampleInputPassword1">Şifre</label>
+                                                                <label for="exampleInputPassword1">Sicil No</label>
                                                                 <input type="text" class="form-control" name="sicilno" value="{{$dataa->sicilno}}" id="exampleInputPassword1" placeholder="Sicilno"><div class="form-group">
 
                                                                 </div>

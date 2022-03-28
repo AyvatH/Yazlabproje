@@ -162,13 +162,44 @@
                                             <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
                                             <h5>Profil Fotoğrafı</h5>
                                             <hr>
-                                            <form action="gonder.php" method="POST" enctype="multipart/form-data">
-                                                <div style="padding:10px">
+
                                                   <label for="dosya">Lütfen Fotoğraf Ekleyiniz</label>
                                                   <br>
-                                                  <img src="images/user/avatar-2.jpg" class="img-radius" alt="User-Profile-Image">
-                                                  <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".png,.jpg,.ımg">
-                                                  <button type="button" class="btn btn-square btn-dark">Fotoğrafımı Kaydet</button>
+                                                  <img   src={{ session()->get('ogr')->foto}} width="120px" height="120px" class="img-radius" alt="User-Profile-Image">
+
+                                                  @php
+                                                   // dd (session()->get('ogr')->foto);
+                                                  @endphp
+                                                  <form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value={{ session()->get('ogr')->id}}>
+                                                    <input type="file" name="file" class="btn btn-square btn-light"  class="form-control" accept=".png,.jpg">
+                                                    <button type="submit" class="btn btn-square btn-dark">Fotoğrafımı Kaydet</button>
+
+
+
+
+                                                    @if ($message = Session::get('success'))
+                                                    <div class="alert alert-success alert-block">
+                                                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                    @endif
+
+                                                    @if (count($errors) > 0)
+                                                    <div class="alert alert-danger">
+                                                        <strong>Uyarı!</strong> Tüm belgeleri eksiksiz atınız.
+                                                        <ul>
+                                                            @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                            @endforeach
+                                                        </ul>
+
+                                                    </div>
+
+                                                    @endif
+                                                  {{-- <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".png,.jpg,.ımg">
+                                                  <button type="button" class="btn btn-square btn-dark">Fotoğrafımı Kaydet</button> --}}
                                                 </div>
                                               </form>
 

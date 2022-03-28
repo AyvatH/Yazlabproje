@@ -120,11 +120,10 @@ class ProjeVt extends Controller
               "fak" => "required",
               "bolum" => "required",
               "tel" => "required",
-              "sifre" => "required"
           ]);
           Ogrenci::where('id',$request->id)->update(["ad"=>$request->ad,"soyad"=>$request->soyad,"no"=>$request->no,
           "eposta"=>$request->eposta,
-          Hash::make($request->sifre),"sinif"=>$request->sinif,
+         "sinif"=>$request->sinif,
           "bolum"=>$request->bolum,"fak"=>$request->fak,"tel"=>$request->tel]);
            return redirect()->route('admin.home');
 
@@ -137,11 +136,10 @@ class ProjeVt extends Controller
             "eposta" => "required",
             "sicilno" => "required",
             "unvan" => "required",
-            "sifre" => "required"
         ]);
         Danisman::where('id',$request->id)->update(["ad"=>$request->ad,"soyad"=>$request->soyad,"sicilno"=>$request->sicilno,
         "eposta"=>$request->eposta,
-        "sifre"=>Hash::make($request->sifre),"unvan"=>$request->unvan]);
+       "unvan"=>$request->unvan]);
          return redirect()->route('admin.home');
 
         }

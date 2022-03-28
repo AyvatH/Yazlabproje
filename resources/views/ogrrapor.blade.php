@@ -152,28 +152,35 @@
                                             @csrf
                                             <input type="hidden" name="ogrno" value={{ session()->get('ogr')->no}}>
                                             <div style="padding:10px">
-                                              <label for="file">Yüklenecek olan PDF ve Word dosyasını seçiniz:</label>
-                                              <br>
+                                              <label for="file">1.PDF Dosyası Ekleyiniz.&nbsp&nbsp&nbsp&nbsp</label>
+
                                               <input type="file" name="file" class="btn btn-square btn-light"  class="form-control" accept=".pdf">
+                                              <br>
+                                              <label for="file">1.WORD Dosyası Ekleyiniz.</label>
                                               <input type="file" class="btn btn-square btn-light" name="file2"  accept=".docx">
+                                              <br>
+                                              <label for="file">2.PDF Dosyası Ekleyiniz.&nbsp&nbsp&nbsp&nbsp</label>
                                               <input type="file" name="file3" class="btn btn-square btn-light"  class="form-control" accept=".pdf">
+                                              <br>
+                                              <label for="file">2.WORD Dosyası Ekleyiniz.</label>
                                               <input type="file" class="btn btn-square btn-light" name="file4"  accept=".docx">
+                                              <br>
+                                              <label for="file">3.PDF Dosyası Ekleyiniz.&nbsp&nbsp&nbsp&nbsp</label>
                                               <input type="file" name="file5" class="btn btn-square btn-light"  class="form-control" accept=".pdf">
+                                              <br>
+                                              <label for="file">3.WORD Dosyası Ekleyiniz.</label>
                                               <input type="file" class="btn btn-square btn-light" name="file6"  accept=".docx">
 
-                                              <button type="submit" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
+
+                                              <div class="card">
+                                                <hr>
+                                                <button type="submit" class="btn btn-outline-primary" title="Raporu Öner" data-toggle="tooltip">Raporu Öner</button>
+                                                <hr>
+                                            </div>
 
                                             </div>
 
-                                          </form>
 
-                                          <form action="{{ route('file.upload.post') }}" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            <div style="padding:10px">
-                                                <input type="file" class="btn btn-square btn-light" name="file"  accept=".docx">
-                                                <button type="submit" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
-                                            </div>
-                                        </form>
                                         @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -182,41 +189,23 @@
         @endif
 
 
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <strong>Uyarı!</strong> Tüm belgeleri eksiksiz atınız.
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-                                        <hr>
-                                        <h5>2.Yükleme</h5>
-                                        <hr>
-                                        <form action="gonder.php" method="POST" enctype="multipart/form-data">
-                                            <div style="padding:10px">
-                                              <label for="dosya">Yüklenecek olan PDF ve Word dosyasını seçiniz:</label>
-                                              <br>
-                                              <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".pdf">
-                                              <button type="button" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
-                                              <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".docx">
-                                              <button type="button" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
-                                            </div>
 
-                                          </form>
-                                        <hr>
-                                        <h5>3.Yükleme</h5>
-                                        <hr>
-                                        <form action="gonder.php" method="POST" enctype="multipart/form-data">
-                                            <div style="padding:10px">
-                                              <label for="dosya">Yüklenecek olan PDF ve Word dosyasını seçiniz:</label>
-                                              <br>
-                                              <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".pdf">
-                                              <button type="button" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
-                                              <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".docx">
-                                              <button type="button" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
-                                            </div>
 
-                                          </form>
-                                        <hr>
+
                                 </div>
                                 <div class="col-sm-12">
-                                    <div class="card">
-                                        <button type="button" class="btn btn-outline-primary" title="Raporu Öner" data-toggle="tooltip">Raporu Öner</button>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

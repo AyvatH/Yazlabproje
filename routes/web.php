@@ -88,3 +88,5 @@ Route::post('ogrproje',[ProjeVt::class,'ogrprojekle']);
 
 Route::get('file-upload', [FileUploadController::class, 'fileUpload'])->name('file.upload');
 Route::post('file-upload', [FileUploadController::class, 'filepdfPost'])->name('file.upload.post');
+Route::post('image-upload', [FileUploadController::class, 'fileUploadPost'])->name('image.upload.post');
+
