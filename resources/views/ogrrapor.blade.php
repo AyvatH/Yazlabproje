@@ -47,6 +47,7 @@
                 <i ><img src="{{url('images/logoo.png')}}" width="50px" height="50px"></i>
                 </div>
                    <span class="b-title">Ana Sayfa</span>
+
                </a>
                <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
            </div>
@@ -145,6 +146,22 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card">
+                                    @forelse ($bilgi2 as $key2 => $val2)
+                                    <input  type="hidden" class="form-control" name="kad"   {{ $akey=$val2 ["durum"]}} placeholder="Kullanıcı Adı">
+                                        @if($akey=="kabul")
+                                     <input  type="hidden" class="form-control" name="kabul"       {{$verii=$akey}}  placeholder="Kullanıcı Adı">
+                                        @else
+                                        @endif
+
+                        @empty
+                        <tr>
+                            <td colspan="4">Veri bulunamadı</td>
+                        </tr>
+                        @endforelse
+
+                                    {{-- @php
+                                    dd($verii);
+                                @endphp --}}
                                     <div class="card-body">
                                         <h5>1.Yükleme</h5>
                                         <hr>
@@ -174,7 +191,9 @@
 
                                               <div class="card">
                                                 <hr>
-                                                <button type="submit" class="btn btn-outline-primary" title="Raporu Öner" data-toggle="tooltip">Raporu Öner</button>
+
+
+                                                <button type="submit"  class="btn btn-outline-primary" title="Raporu Öner" data-toggle="tooltip">Raporu Öner</button>
                                                 <hr>
                                             </div>
 

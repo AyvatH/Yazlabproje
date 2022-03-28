@@ -149,27 +149,49 @@
                                     <div class="card-body">
                                         <h5>Tez Dosyası</h5>
                                         <hr>
-                                        <form action="gonder.php" method="POST" enctype="multipart/form-data">
+                                        <form action="{{ route('tez.upload.post') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <input type="hidden" name="ogrno" value={{ session()->get('ogr')->no}}>
                                             <div style="padding:10px">
-                                              <label for="dosya">Yüklenecek PDF dosyayı seçiniz:</label>
+                                              <label for="file">1.PDF Dosyası Ekleyiniz.&nbsp&nbsp&nbsp&nbsp</label>
+
+                                              <input type="file" name="file" class="btn btn-square btn-light"  class="form-control" accept=".pdf">
                                               <br>
-                                              <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".pdf">
-                                              <button type="button" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
-                                            </div>
-                                            <div style="padding:10px">
-                                                <label for="dosya">Yüklenecek WORD dosyayı seçiniz:</label>
-                                                <br>
-                                                <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".docx,">
-                                                <button type="button" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
-                                              </div>
+                                              <label for="file">1.WORD Dosyası Ekleyiniz.</label>
+                                              <input type="file" class="btn btn-square btn-light" name="file2"  accept=".docx">
+
 
                                           </form>
                                         <hr>
                                         <div class="col-sm-12">
                                             <div class="card">
-                                                <button type="button" class="btn btn-outline-primary" title="Tezi Öner" data-toggle="tooltip">Tez Öner</button>
+                                                <button type="submit" class="btn btn-outline-primary" title="Tezi Öner" data-toggle="tooltip">Tez Öner</button>
                                             </div>
                                         </div>
+
+                                        @if ($message = Session::get('success'))
+                                        <div class="alert alert-success alert-block">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                                <strong>{{ $message }}</strong>
+                                        </div>
+                                        @endif
+
+
+                                        @if (count($errors) > 0)
+                                            <div class="alert alert-danger">
+                                                <strong>Uyarı!</strong> Tüm belgeleri eksiksiz atınız.
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+
+
+
+
+
                                 </div>
 
                             </div>

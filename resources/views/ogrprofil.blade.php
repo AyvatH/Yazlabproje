@@ -109,7 +109,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
-                                <img src="images/user/avatar-2.jpg" class="img-radius" alt="User-Profile-Image">
+                                <img src={{session()->get('ogr')->foto}} class="img-radius" alt="User-Profile-Image">
                                 <span>{{ session()->get('ogr')->ad.' '.session()->get('ogr')->soyad }}</span>
                                 <a href="ogrcikis" class="dud-logout" title="Çıkış">
                                     <i class="feather icon-log-out"></i>
@@ -165,7 +165,9 @@
 
                                                   <label for="dosya">Lütfen Fotoğraf Ekleyiniz</label>
                                                   <br>
-                                                  <img   src={{ session()->get('ogr')->foto}} width="120px" height="120px" class="img-radius" alt="User-Profile-Image">
+                                                  <input  type="hidden" class="form-control" name="kad"   {{$fotoo=session()->get('ogr')->foto}}  placeholder="Kullanıcı Adı">
+
+                                                  <img   src={{session()->get('ogr')->foto}} width="120px" height="120px" class="img-radius" alt="User-Profile-Image">
 
                                                   @php
                                                    // dd (session()->get('ogr')->foto);

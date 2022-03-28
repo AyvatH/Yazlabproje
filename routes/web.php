@@ -63,6 +63,8 @@ Route::post('dngiris',[ProjeVt::class,'dangiris'])->name("danhome")->middleware(
 
 Route::get('siskontrol',[ProjeVt::class,'liste'])->name("admin.home");
 
+Route::get('ogrrapor',[ProjeVt::class,'liste6'])->name("ogr.rapor");
+
 Route::get('danogrlist',[ProjeVt::class,'liste5'])->name("danogr.liste");
 Route::get('ogrprofil',[ProjeVt::class,'liste4'])->name("ogr.profile");
 Route::get('ogrbasvurular',[ProjeVt::class,'liste2'])->name("ogr.liste");
@@ -88,5 +90,6 @@ Route::post('ogrproje',[ProjeVt::class,'ogrprojekle']);
 
 Route::get('file-upload', [FileUploadController::class, 'fileUpload'])->name('file.upload');
 Route::post('file-upload', [FileUploadController::class, 'filepdfPost'])->name('file.upload.post');
+Route::post('tez-upload', [FileUploadController::class, 'fileUploadTezpost'])->name('tez.upload.post');
 Route::post('image-upload', [FileUploadController::class, 'fileUploadPost'])->name('image.upload.post');
 

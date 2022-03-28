@@ -54,6 +54,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
+        'Raporkontrol' => \App\Http\Middleware\Raporkontrol::class,
         'Danoturumkontrol' => \App\Http\Middleware\Danoturumkontrol::class,
         'Ogroturumkontrol' => \App\Http\Middleware\Ogroturumkontrol::class,
        'Ogrlogin' => \App\Http\Middleware\Ogrkontrol::class,

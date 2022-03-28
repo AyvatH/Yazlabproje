@@ -73,6 +73,12 @@ class ProjeVt extends Controller
         $bilgi="Proje Öneri";
         return view('danogrlist',compact('bilgi2'));
     }
+    public function liste6()
+    {
+        $bilgi2=Ogrenci::join("projeoneri","projeoneri.num_id","ogrenciler.id")->get(["ogrenciler.*","projeoneri.durum"]);
+
+        return view('ogrrapor',compact('bilgi2'));
+    }
     public function sil($id)
     {
         $veri=$id;
@@ -109,6 +115,7 @@ class ProjeVt extends Controller
           return view('sisdandzn',compact('dataa','veri'));
 
         }
+
         public function guncelled(Request $request)
         {
           $request->validate([

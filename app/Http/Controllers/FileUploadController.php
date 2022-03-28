@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ogrenci;
 use App\Models\Projerapor;
+use App\Models\Projetez;
 use Illuminate\Http\Request;
 
 
@@ -34,6 +35,13 @@ class FileUploadController extends Controller
 
         $fileName = time().'.'.$request->file->extension();
 
+
+            $veri=$request->id;
+            $dataa=Ogrenci::whereId($veri)->first();
+
+
+
+
         $request->file->move(public_path('images'), $fileName);
         Ogrenci::where('id',$request->id)->update(["foto"=>"images/".$fileName]);
 
@@ -44,24 +52,42 @@ class FileUploadController extends Controller
 
     }
 
+    public function guncelle2($id)
+    {
+
+
+        return view('sisdandzn',compact('dataa','veri'));
+
+      }
 
 
 
 
 
 
-    public function fileUploadwordPost(Request $request)
+
+    public function fileUploadTezPost(Request $request)
     {
         $request->validate([
             'file' => 'required|max:2048',
+            'file2' => 'required|max:2048',
+        ],
+        ['file.required'=>'1.Gönderme Eksik',
+        'file2.required'=>'2.Gönderme Eksik',
         ]);
 
         $fileName = time().'.'.$request->file->extension();
+        $fileName2 = time().'.'.$request->file->extension();
 
-        $request->file->move(public_path('words'), $fileName);
+        $request->file->move(public_path('pdfs'), $fileName);
+        $request->file2->move(public_path('words'), $fileName2);
+
+
+        Projetez::create
+        (["pdf_path"=>"pdfs/".$fileName,"word_path"=>"words/".$fileName2]);
 
         return back()
-            ->with('success','You have successfully upload file.')
+            ->with('success','Başarıyla dosyaları gönderdiniz.')
             ->with('file',$fileName);
 
     }
