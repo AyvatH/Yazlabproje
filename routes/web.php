@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProjeVt;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\FileUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,3 +85,6 @@ Route::post('sisdanekle',[ProjeVt::class,'danekle']);
 Route::post('sisogrekle',[ProjeVt::class,'ogrekle']);
 
 Route::post('ogrproje',[ProjeVt::class,'ogrprojekle']);
+
+Route::get('file-upload', [FileUploadController::class, 'fileUpload'])->name('file.upload');
+Route::post('file-upload', [FileUploadController::class, 'filepdfPost'])->name('file.upload.post');

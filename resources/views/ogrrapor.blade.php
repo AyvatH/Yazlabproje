@@ -148,17 +148,41 @@
                                     <div class="card-body">
                                         <h5>1.Yükleme</h5>
                                         <hr>
-                                        <form action="gonder.php" method="POST" enctype="multipart/form-data">
+                                        <form action="{{ route('file.upload.post') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <input type="hidden" name="ogrno" value={{ session()->get('ogr')->no}}>
                                             <div style="padding:10px">
-                                              <label for="dosya">Yüklenecek olan PDF ve Word dosyasını seçiniz:</label>
+                                              <label for="file">Yüklenecek olan PDF ve Word dosyasını seçiniz:</label>
                                               <br>
-                                              <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".pdf">
-                                              <button type="button" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
-                                              <input type="file" class="btn btn-square btn-light" name="dosya"  accept=".docx">
-                                              <button type="button" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
+                                              <input type="file" name="file" class="btn btn-square btn-light"  class="form-control" accept=".pdf">
+                                              <input type="file" class="btn btn-square btn-light" name="file2"  accept=".docx">
+                                              <input type="file" name="file3" class="btn btn-square btn-light"  class="form-control" accept=".pdf">
+                                              <input type="file" class="btn btn-square btn-light" name="file4"  accept=".docx">
+                                              <input type="file" name="file5" class="btn btn-square btn-light"  class="form-control" accept=".pdf">
+                                              <input type="file" class="btn btn-square btn-light" name="file6"  accept=".docx">
+
+                                              <button type="submit" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
+
                                             </div>
 
                                           </form>
+
+                                          <form action="{{ route('file.upload.post') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div style="padding:10px">
+                                                <input type="file" class="btn btn-square btn-light" name="file"  accept=".docx">
+                                                <button type="submit" class="btn btn-square btn-dark">Dosyayı Kaydet</button>
+                                            </div>
+                                        </form>
+                                        @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+        </div>
+        @endif
+
+
+
                                         <hr>
                                         <h5>2.Yükleme</h5>
                                         <hr>
