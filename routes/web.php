@@ -96,3 +96,7 @@ Route::post('image-upload', [FileUploadController::class, 'fileUploadPost'])->na
 Route::get('deneme',function(){
     return "Deneme";
 });
+
+Route::get('deneme2',function(){
+    return "Deneme2";
+});
