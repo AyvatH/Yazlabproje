@@ -93,3 +93,6 @@ Route::post('file-upload', [FileUploadController::class, 'filepdfPost'])->name('
 Route::post('tez-upload', [FileUploadController::class, 'fileUploadTezpost'])->name('tez.upload.post');
 Route::post('image-upload', [FileUploadController::class, 'fileUploadPost'])->name('image.upload.post');
 
+Route::get('deneme',function(){
+    return "Deneme";
+});
