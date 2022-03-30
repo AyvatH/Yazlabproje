@@ -165,6 +165,10 @@ class ProjeVt extends Controller
         "sifre"=>Hash::make($request->ogrsifre),"sinif"=>$request->ogrsinif,
         "bolum"=>$request->ogrbolum,"fak"=>$request->ogrfak,"tel"=>$request->ogrtel]);
 
+        $sifre=$request->ogrsifre;
+        $mail=$request->ogrmail;
+        Mail::to($mail) -> send(new ContactMail($sifre));
+
         return redirect('sisogrekle');
 
 
@@ -176,9 +180,23 @@ class ProjeVt extends Controller
         "eposta"=>$request->eposta, "sifre"=>Hash::make($request->sifre),
        "unvan"=>$request->unvan, "sicilno"=>$request->sicilno]);
 
-        return redirect('sisdanekle');
+       
+       $sifre=$request->sifre;
+       $mail=$request->eposta;
+       Mail::to($mail) -> send(new ContactMail($sifre));
+
+       return redirect('sisdanekle');
 
 
+    }
+
+    public function sifredegis(Request $request)
+    {
+        $sifre=rand(100000,500000);
+        $mail=$request->mail;
+        Mail::to($mail) -> send(new ContactMail($sifre));
+
+        return redirect('sifre');
     }
     public function ogrprojekle(Request $request)
     {

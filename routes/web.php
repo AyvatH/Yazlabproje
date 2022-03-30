@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProjeVt;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,3 +104,12 @@ Route::get('deneme',function(){
 Route::get('deneme2',function(){
     return "Deneme2";
 });
+
+Route::post('sifre',[ProjeVt::class,'sifredegis']);
+Route::view('email-form','email-form');
+Route::view('email','email');
+Route::get('/form', function () {
+    return view('email-form');
+});
+
+Route::post('/send-email', [ContactController::class, 'sendEmail']) -> name('send.email');

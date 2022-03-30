@@ -240,7 +240,7 @@
 
                                                          </td>
                                                          <td>
-                                                            <a href="{{url("duzenle/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Açıklama</a>
+                                                            <a href="{{url("acıklama/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Açıklama</a>
 
                                                          </td>
 
