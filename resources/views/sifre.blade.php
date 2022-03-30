@@ -26,6 +26,8 @@
 </head>
 
 <body>
+    <form id="addCustomer"  class="form-group" method="POST" >
+        @csrf
     <div class="auth-wrapper">
         <div class="auth-content">
             <div class="auth-bg">
@@ -41,7 +43,7 @@
                     </div>
                     <h3 class="mb-4">Parola Değiştir</h3>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" class="form-control" name="mail" placeholder="Email">
                     </div>
                     <button class="btn btn-primary mb-4 shadow-2">Parola Değiştir</button>
 
@@ -49,7 +51,7 @@
             </div>
         </div>
     </div>
-
+    </form>
 
       <!-- Required Js -->
       <script src="{{url('js/pcoded.min.js')}}"></script>

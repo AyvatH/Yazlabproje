@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Ögrenci Ekle</title>
+    <title>PTS</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -45,7 +45,7 @@
                     <div class="b-bg">
                         <i class="feather icon-trending-up"></i>
                     </div>
-                    <span class="b-title">PTS</span>
+                    <span class="b-title">Sistem Yöneticisi</span>
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>

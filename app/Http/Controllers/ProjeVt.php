@@ -9,7 +9,8 @@ use App\Models\Proje;
 use App\Models\Yonetici;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 
 
 
