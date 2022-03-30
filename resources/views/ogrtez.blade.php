@@ -144,7 +144,27 @@
                     <div class="page-wrapper">
                         <!-- [ Main Content ] start -->
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12">{{$verii=""}}
+                                @forelse ($bilgi2 as $key2 => $val2)
+                                    <input  type="hidden" class="form-control" name="kad"    {{ $akey=$val2 ["durum"]}} placeholder="Kullanıcı Adı">
+                                        @if($akey=="kabul")
+
+                                     <input  type="hidden" class="form-control" name="kabul"        {{$verii=$akey}}  placeholder="Kullanıcı Adı">
+                                        @else
+                                        @endif
+
+                        @empty
+                        <tr>
+                            <td colspan="4">Veri bulunamadı</td>
+                        </tr>
+                        @endforelse
+{{-- 
+                                    @php
+                                    dd($verii);
+                                @endphp --}}
+                             
+                                    
+                                @if("kabul"==$verii)
                                 <div class="card">
                                     <div class="card-body">
                                         <h5>Tez Dosyası</h5>
@@ -193,6 +213,7 @@
 
 
                                 </div>
+                                
 
                             </div>
                         </div>
@@ -204,6 +225,12 @@
   <!-- Required Js -->
   <script src="{{url('js/pcoded.min.js')}}"></script>
   <script src="{{url('js/vendor-all.min.js')}}"></script>
-  <script src="{{url('plugins/bootstrap/js/bootstrap.min.js')}}"></script>
-
+  <script src="{{url('plugins/bootstrap/js/bootstrap.min.js')}}"></script>,
+  @else
+  <div class="alert alert-danger" role="alert">
+  <strong>Proje raporunuz onaylanmadı.</strong>
+</div>
+  
+  @endif
+ 
 

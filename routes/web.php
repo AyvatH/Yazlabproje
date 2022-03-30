@@ -63,6 +63,8 @@ Route::post('dngiris',[ProjeVt::class,'dangiris'])->name("danhome")->middleware(
 
 Route::get('siskontrol',[ProjeVt::class,'liste'])->name("admin.home");
 
+Route::get('ogrtez',[ProjeVt::class,'liste7'])->name("ogr.tez");
+
 Route::get('ogrrapor',[ProjeVt::class,'liste6'])->name("ogr.rapor");
 
 Route::get('danogrlist',[ProjeVt::class,'liste5'])->name("danogr.liste");
