@@ -25,6 +25,8 @@ Route::view('dngiris','dngiris')->middleware("Danoturumkontrol","Ogroturumkontro
 Route::view('sifre','sifre');
 
 Route::view('ograna','ograna');
+Route::view('adminatama','adminatama');
+Route::view('donemekle','donemekle');
 Route::view('ogrprofil','ogrprofil')->middleware("Ogrlogin");
 Route::view('ogrproje','ogrproje')->middleware("Ogrlogin");
 Route::view('ogrrapor','ogrrapor')->middleware("Ogrlogin");
@@ -64,6 +66,9 @@ Route::post('dngiris',[ProjeVt::class,'dangiris'])->name("danhome")->middleware(
 
 
 Route::get('siskontrol',[ProjeVt::class,'liste'])->name("admin.home");
+
+Route::post('adminatama',[ProjeVt::class,'atama'])->name("admin.atama");
+Route::get('adminatamaa',[ProjeVt::class,'goster'])->name("admin.atama.goster");
 
 Route::get('ogrtez',[ProjeVt::class,'liste7'])->name("ogr.tez");
 

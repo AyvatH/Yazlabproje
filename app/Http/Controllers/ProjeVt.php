@@ -6,6 +6,7 @@ use App\Models\Danisman;
 use Illuminate\Http\Request;
 use App\Models\Ogrenci;
 use App\Models\Proje;
+use App\Models\Atama;
 use App\Models\Yonetici;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -18,14 +19,48 @@ use App\Mail\ContactMail;
 class ProjeVt extends Controller
 {
 
+    public function goster()
+    {
+        return view('adminatama');
 
+    }
+
+    public function atama()
+    {
+        $bilgi=Ogrenci::get()->toArray();
+        $bilgi2=Danisman::get()->toArray()      ;
+        //  dd(count($bilgi),$bilgi2);
+        $b=0;
+        if(count($bilgi)!=0 && count($bilgi2)!=0)
+        {
+        for($a=0;$a<count($bilgi);$a++)
+        {
+            if(count($bilgi2)==$b)
+            $b=0;
+            $ogr_id=$bilgi2[$b]['id'];
+            $dan_id=$bilgi[$a]['id'];
+           Atama::create
+            (["ogr_id"=> $ogr_id,"dan_id"=> $dan_id]);
+
+            $b++;
+
+        }
+    }
+    else
+    {
+dd("Ögretmen ve Ögrenci sayınız sıfırdan farklı olmalıdır.");
+    }
+        return view('adminatama');
+    }
 
     public function liste()
     {
         $bilgi=Ogrenci::get();
         $bilgi2=Danisman::get();
+        // dd($bilgi,$bilgi2);
         return view('siskontrol',compact('bilgi','bilgi2'));
     }
+
 
     public function liste2()
     {
@@ -181,7 +216,7 @@ class ProjeVt extends Controller
         "eposta"=>$request->eposta, "sifre"=>Hash::make($request->sifre),
        "unvan"=>$request->unvan, "sicilno"=>$request->sicilno]);
 
-       
+
        $sifre=$request->sifre;
        $mail=$request->eposta;
        Mail::to($mail) -> send(new ContactMail($sifre));

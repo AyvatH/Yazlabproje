@@ -56,6 +56,9 @@
                     <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
                         <a href="siskontrol" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Kontrol Paneli</span></a>
                     </li>
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
+                        <a href="adminatama" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Atama İşlemi</span></a>
+                    </li>
 
                     <li class="nav-item pcoded-menu-caption">
                         <label>Kayıt</label>
@@ -191,5 +194,4 @@
 
 
 
-         
-        
+

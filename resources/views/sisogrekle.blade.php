@@ -57,15 +57,24 @@
                     <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
                         <a href="siskontrol" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Kontrol Paneli</span></a>
                     </li>
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
+                        <a href="{{route("admin.atama.goster")}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Atama İşlemi</span></a>
+                    </li>
 
                     <li class="nav-item pcoded-menu-caption">
                         <label>Kayıt</label>
                     </li>
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
+                    <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                         <a href="sisogrekle" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Öğrenci Kayıt</span></a>
                     </li>
                     <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                         <a href="sisdanekle" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Danışman Kayıt</span></a>
+                    </li>
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Dönem</label>
+                    </li>
+                    <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
+                        <a href="donemekle" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Dönem Ekleme</span></a>
                     </li>
                     <li class="nav-item pcoded-menu-caption">
                         <label>Profil</label>
