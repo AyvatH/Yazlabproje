@@ -57,7 +57,7 @@
                         <a href="siskontrol" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Kontrol Paneli</span></a>
                     </li>
                     <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
-                        <a href="adminatama" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Atama İşlemi</span></a>
+                        <a href="{{route("admin.atama.goster")}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Atama İşlemi</span></a>
                     </li>
 
                     <li class="nav-item pcoded-menu-caption">
@@ -160,11 +160,13 @@
                                                 @csrf <!-- {{ csrf_field() }} -->
                                         </div>
                                         <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">Dönem Ekleyiniz</label>
+                                        <label for="exampleFormControlTextarea1">Dönem Adı Ekleyiniz</label>
+                                        <input class="mb-3 form-control form-control-lg" name="donemadi" type="text" placeholder="Dönem Adı ">
+                                        <label for="exampleFormControlTextarea1">Dönem Tarihi Ekleyiniz</label>
                                         <div class="input-group mb-3">
-                                        <input type="date" name="no" class="form-control" placeholder="Dönem">
+                                        <input type="date" name="tarih" class="form-control" placeholder="Dönem">
                                         </div>
-                                        <button type="button" class="btn btn-square btn-dark">Dönemi Kaydet</button>
+                                        <button type="submit" class="btn btn-square btn-dark">Dönemi Kaydet</button>
                                         </div>
 
                                     </div>
@@ -177,6 +179,46 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card-block table-border-style">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Dönem Adı</th>
+                                            <th>Aktif Dönem</th>
+                                            <th>Tarih</th>
+                                            <th>Aktif Dönem</th>
+                                            <th>Pasif Dönem</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+
+                                        @forelse ($bilgi as $key => $val)
+                                        <input  type="hidden" class="form-control" name="kadd"  {{ $akey=$val ['id']}} placeholder="Kullanıcı Adı">
+
+                                        <tr>
+                                            <td>{{  $val ['donem_adi']}}</td>
+                                            <td>{{ $val ['aktif_donem']}}</td>
+                                             <td>{{ $val ["tarih"]}}</td>
+                                            <td>
+                                                <a href="{{url("aktif/".$akey)}}" type="submit" class="label theme-bg text-white f-12">Aktif Dönem</a>
+
+                                             </td>
+                                             <td>   <a href="{{url("pasif/$akey")}}" type="submit" class="label theme-bg2 text-white f-12">Pasif Dönem</a>
+                            </td></tr>
+                            @empty
+                            <tr>
+                                <td colspan="4">Veri bulunamadı</td>
+                            </tr>
+                            @endforelse
+
+
+                            </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                         <!-- [ Main Content ] end -->
                     </div>
                 </div>

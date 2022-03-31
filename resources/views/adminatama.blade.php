@@ -162,7 +162,7 @@
                                 <div style="padding:10px">
                                   <label for="file">Atama İşlemini Başlat</label>
 
-                                  <button type="submit" class="btn btn-outline-primary" onclick="this.disabled=true"  title="Atama İşlemini Başlat" data-toggle="tooltip">Atama İşlemini Başlat</button>
+                                  <button type="submit" class="btn btn-outline-primary"   title="Atama İşlemini Başlat" data-toggle="tooltip">Atama İşlemini Başlat</button>
 
                               </form>
                             <hr>

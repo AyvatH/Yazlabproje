@@ -9,6 +9,6 @@ class Danisman extends Model
 {
     use HasFactory;
     protected $table="danisman";
-    protected $fillable=["ad","soyad","sicilno","eposta","donem","sifre","unvan"];
+    protected $fillable=["ad","soyad","sicilno","eposta","donem","sifre","unvan","donem"];
     public $timestamps = false;
 }

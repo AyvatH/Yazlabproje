@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Ogrenci;
 use App\Models\Proje;
 use App\Models\Atama;
+use App\Models\Donem;
 use App\Models\Yonetici;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -28,8 +29,11 @@ class ProjeVt extends Controller
     public function atama()
     {
         $bilgi=Ogrenci::get()->toArray();
-        $bilgi2=Danisman::get()->toArray()      ;
+        $bilgi2=Danisman::get()->toArray();
+        $bilgi3=Atama::get()->toArray();
         //  dd(count($bilgi),$bilgi2);
+        if(count($bilgi3)==0)
+        {
         $b=0;
         if(count($bilgi)!=0 && count($bilgi2)!=0)
         {
@@ -49,7 +53,10 @@ class ProjeVt extends Controller
     else
     {
 dd("Ögretmen ve Ögrenci sayınız sıfırdan farklı olmalıdır.");
-    }
+    }}
+    else
+    {
+dd("Atama işlemi yapılmıştır.");}
         return view('adminatama');
     }
 
@@ -59,6 +66,22 @@ dd("Ögretmen ve Ögrenci sayınız sıfırdan farklı olmalıdır.");
         $bilgi2=Danisman::get();
         // dd($bilgi,$bilgi2);
         return view('siskontrol',compact('bilgi','bilgi2'));
+    }
+
+    public function liste8()
+    {
+        $bilgi=Donem::get();
+        return view('donemekle',compact('bilgi'));
+    }
+    public function liste9()
+    {
+        $bilgi=Donem::get();
+        return view('sisogrekle',compact('bilgi'));
+    }
+    public function liste10()
+    {
+        $bilgi=Donem::get();
+        return view('sisdanekle',compact('bilgi'));
     }
 
 
@@ -149,6 +172,26 @@ dd("Ögretmen ve Ögrenci sayınız sıfırdan farklı olmalıdır.");
         return view('sisogrgun',compact('dataa','veri'));
 
       }
+
+      public function aktif($id)
+      {
+        $bilgi=Donem::get();
+          $veri=$id;
+          $dataa=Donem::whereId($veri)->first();
+          Donem::where('id',$veri)->update(["aktif_donem"=>"aktif"]);
+          return redirect()->back()->with("bilgi",$bilgi);
+        }
+
+        public function pasif($id)
+        {
+          $bilgi=Donem::get();
+            $veri=$id;
+            $dataa=Donem::whereId($veri)->first();
+            Donem::where('id',$veri)->update(["aktif_donem"=>"pasif"]);
+            return redirect()->back()->with("bilgi",$bilgi);
+
+          }
+
       public function guncelle2($id)
       {
 
@@ -199,7 +242,7 @@ dd("Ögretmen ve Ögrenci sayınız sıfırdan farklı olmalıdır.");
         (["ad"=>$request->ograd,"soyad"=>$request->ogrsad,"no"=>$request->ogrno,
         "eposta"=>$request->ogrmail,
         "sifre"=>Hash::make($request->ogrsifre),"sinif"=>$request->ogrsinif,
-        "bolum"=>$request->ogrbolum,"fak"=>$request->ogrfak,"tel"=>$request->ogrtel]);
+        "bolum"=>$request->ogrbolum,"fak"=>$request->ogrfak,"tel"=>$request->ogrtel,"donem"=>$request->donem]);
 
         $sifre=$request->ogrsifre;
         $mail=$request->ogrmail;
@@ -214,7 +257,7 @@ dd("Ögretmen ve Ögrenci sayınız sıfırdan farklı olmalıdır.");
         Danisman::create
         (["ad"=>$request->ad,"soyad"=>$request->soyad,
         "eposta"=>$request->eposta, "sifre"=>Hash::make($request->sifre),
-       "unvan"=>$request->unvan, "sicilno"=>$request->sicilno]);
+       "unvan"=>$request->unvan, "sicilno"=>$request->sicilno,"donem"=>$request->donem]);
 
 
        $sifre=$request->sifre;
@@ -222,6 +265,15 @@ dd("Ögretmen ve Ögrenci sayınız sıfırdan farklı olmalıdır.");
        Mail::to($mail) -> send(new ContactMail($sifre));
 
        return redirect('sisdanekle');
+
+
+    }
+    public function donemekle(Request $request)
+    {
+        Donem::create
+        (["donem_adi"=>$request->donemadi,"tarih"=>$request->tarih,"aktif_donem"=>"pasif"]);
+
+       return redirect('donemekle');
 
 
     }

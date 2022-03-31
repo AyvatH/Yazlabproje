@@ -166,14 +166,31 @@
                                         <div class="card-header">
                                             <h5>Danışman Ekle</h5>
                                         </div>
+                                       @forelse ($bilgi as $key => $val)
+                                        <input  type="hidden" class="form-control" name="kadd"  {{ $akey=$val ['id']}} placeholder="Kullanıcı Adı">
+
+                                        {{-- @php
+                                        dd($val['aktif_donem'])
+                                    @endphp --}}
+                                    @if ($val['aktif_donem']=="aktif")
+                                    <input type="hidden" class="form-control"  {{ $veri=$val ['donem_adi']}} placeholder="1">
+                                    <input type="hidden" class="form-control"  {{ $verii=$val ['id']}} placeholder="2">
+
+                                    @else
+
+                                    @endif
+                            @empty
+                            @endforelse
+                            <form id="addCustomer"  class="form-group" method="POST" >
+                                @csrf <!-- {{ csrf_field() }} -->
                                         <div class="card-body">
-
+                                            <label for="exampleFormControlSelect1">Dönem</label>
+                                                            <select  class="form-control" id="exampleFormControlSelect1">
+                                                                <option>Seçiniz</option>
+                                                                <option>{{ $veri}}</option>
+                                                            </select>
                                             <hr>
-                                            <div class="row">
-                                                <div class="col-md-6">
-
-                                                    <form id="addCustomer"  class="form-group" method="POST" >
-                                                        @csrf <!-- {{ csrf_field() }} -->
+                                            <input type="hidden" class="form-control" value="{{$verii}}" name="donem" id="donem" placeholder="Ad">
                                                         <div class="form-group">
                                                             <label for="exampleNameSurname">Ad</label>
                                                             <input type="text" class="form-control" name="ad" id="exampleNameSurname" placeholder="Ad">

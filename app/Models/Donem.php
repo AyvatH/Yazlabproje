@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ogrenci extends Model
+class Donem extends Model
 {
     use HasFactory;
-    protected $table="ogrenciler";
-    protected $fillable=["ad","soyad","no","sinif","bolum","fak","eposta","foto","tel","danisman","sifre","donem"];
+    protected $table="donem";
+    protected $fillable=["donem_adi","aktif_donem","tarih"];
     public $timestamps = false;
 }

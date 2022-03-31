@@ -44,6 +44,7 @@ Route::view('danprofil','danprofil')->middleware("Danlogin");
 Route::view('admingiris','admingiris')->middleware("Danoturumkontrol","Ogroturumkontrol","Yonoturumkontrol");
 Route::view('siskontrol','siskontrol')->middleware("Yonlogin");
 Route::view('sisogrekle','sisogrekle')->middleware("Yonlogin");
+Route::view('donemekle','donemekle')->middleware("Yonlogin");
 Route::view('sisdanekle','sisdanekle')->middleware("Yonlogin");
 Route::view('sisprofile','sisprofile')->middleware("Yonlogin");
 Route::view('sisdandzn','sisdandzn')->middleware("Yonlogin");
@@ -68,9 +69,12 @@ Route::post('dngiris',[ProjeVt::class,'dangiris'])->name("danhome")->middleware(
 Route::get('siskontrol',[ProjeVt::class,'liste'])->name("admin.home");
 
 Route::post('adminatama',[ProjeVt::class,'atama'])->name("admin.atama");
-Route::get('adminatamaa',[ProjeVt::class,'goster'])->name("admin.atama.goster");
+Route::get('adminatama',[ProjeVt::class,'goster'])->name("admin.atama.goster");
 
 Route::get('ogrtez',[ProjeVt::class,'liste7'])->name("ogr.tez");
+Route::get('donemekle',[ProjeVt::class,'liste8'])->name("donem.ekle");
+Route::get('sisogrekle',[ProjeVt::class,'liste9'])->name("ogrdonem.ekle");
+Route::get('sisdanekle',[ProjeVt::class,'liste10'])->name("dandonem.ekle");
 
 Route::get('ogrrapor',[ProjeVt::class,'liste6'])->name("ogr.rapor");
 
@@ -87,6 +91,12 @@ Route::get('duzenle/{id}',[ProjeVt::class,'guncelle2']);
 Route::get('sil2/{id}',[ProjeVt::class,'sil2']);
 
 
+
+Route::get('aktif/{id}',[ProjeVt::class,'aktif']);
+Route::get('pasif/{id}',[ProjeVt::class,'pasif']);
+
+
+
 Route::get('ogrcikis',[ProjeVt::class,'ogrcikis']);
 Route::get('dancikis',[ProjeVt::class,'dancikis']);
 Route::get('yoncikis',[ProjeVt::class,'yoncikis']);
@@ -94,6 +104,8 @@ Route::get('yoncikis',[ProjeVt::class,'yoncikis']);
 Route::get('/listele', [ProjeVt::class, 'listele']);
 Route::post('sisdanekle',[ProjeVt::class,'danekle']);
 Route::post('sisogrekle',[ProjeVt::class,'ogrekle']);
+
+Route::post('donemekle',[ProjeVt::class,'donemekle']);
 
 Route::post('ogrproje',[ProjeVt::class,'ogrprojekle']);
 
