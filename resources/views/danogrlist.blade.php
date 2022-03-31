@@ -99,6 +99,8 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
+
+
                                 <img src="images/user/avatar-2.jpg" class="img-radius" alt="User-Profile-Image">
                                 <span>{{ session()->get('dan')->ad.' '.session()->get('dan')->soyad }}</span>
                                 <a href="dancikis" class="dud-logout" title="Çıkış">
@@ -164,6 +166,8 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody >
+                                                    <input  type="hidden" class="form-control" name="danid" value="{{ session()->get('dan')->id}}"  >
+
 
                                                     @forelse ($bilgi2 as $key2 => $val2)
                                                     <input  type="hidden" class="form-control" name="kad"  {{ $akey2=$val2 ['id']}} placeholder="Kullanıcı Adı">

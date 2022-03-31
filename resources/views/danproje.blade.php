@@ -269,71 +269,7 @@
                             </form>
                         </div>
 
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Açıklama Ekleyiniz</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" column="200" rows="6" ></textarea>
-            <button type="button" class="btn btn-square btn-dark">Açıklamayı Kaydet</button>
-        </div>
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Benzerlik Olan Öğrenci</h5>
-                </div>
-                <div class="card-block table-border-style">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
 
-                                    <th>Başvuran Profil</th>
-                                    <th>Başvuran Ad</th>
-                                    <th>Başvuran Soyad</th>
-                                    <th>Baş.Numara</th>
-                                    <th>Benzeyen Profil</th>
-                                    <th>Benzeyen Ad</th>
-                                    <th>Benzeyen Soyad</th>
-                                    <th>Benzeyen Numara</th>
-                                    <th>                                        </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>11111111</td>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>11111</td>
-                                </tr>
-                                <tr>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>11111111</td>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>111111112</td>
-                                </tr>
-                                <tr><td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>11111111</td>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>111111112</td>
-                                </tr>
-                            </tbody>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- [ Hover-table ] end -->
                         </div>
                     </div>
                 </div>

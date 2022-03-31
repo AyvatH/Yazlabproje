@@ -41,8 +41,8 @@ class ProjeVt extends Controller
         {
             if(count($bilgi2)==$b)
             $b=0;
-            $ogr_id=$bilgi2[$b]['id'];
-            $dan_id=$bilgi[$a]['id'];
+            $ogr_id=$bilgi[$a]['id'];
+            $dan_id=$bilgi2[$b]['id'];
            Atama::create
             (["ogr_id"=> $ogr_id,"dan_id"=> $dan_id]);
 
@@ -121,15 +121,11 @@ dd("Atama işlemi yapılmıştır.");}
     }
     public function liste5()
     {
-        $bilgi2=Danisman::join("atama","atama.dan_id","danisman.id")->
-                        join("ogrenciler","ogrenciler.id","atama.ogr_id")
-                    ->get(["danisman.*","ogrenciler.eposta","ogrenciler.ad","ogrenciler.soyad","ogrenciler.no","ogrenciler.sinif"]);
-
-        // $bilgi2=Proje::join("ogrenciler","ogrenciler.id","projeoneri.num_id")
-        //              ->join("atama","atama.ogr_id","ogrenciler.id")
-        //               ->get(["projeoneri.*","ogrenciler.ad","ogrenciler.soyad","ogrenciler.no","atama.id as atama_id"]);
-      //  dd($title->ad);
-        $bilgi="Proje Öneri";
+        $danid=session()->get('dan')->id;
+        $bilgi2=Atama::join("ogrenciler","ogrenciler.id","atama.ogr_id")->
+        join("danisman","danisman.id","atama.dan_id")->where("danisman.id",$danid)->
+        get(['ogrenciler.ad','ogrenciler.soyad',"ogrenciler.no","ogrenciler.sinif","ogrenciler.eposta"]);
+        // dd($bilgi2);
         return view('danogrlist',compact('bilgi2'));
     }
     public function liste6()

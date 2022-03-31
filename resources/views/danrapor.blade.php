@@ -68,7 +68,7 @@
                         <label>Öğrenci Listesi</label>
                     </li>
                     <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
-                        <a href="danogrlist" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Liste</span></a>
+                        <a href="danogrlist"  class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Liste</span></a>
                     </li>
 
                 </ul>
