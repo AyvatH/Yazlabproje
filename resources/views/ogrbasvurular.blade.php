@@ -153,9 +153,55 @@
                             <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5>Öğrenci Başvuruları</h5>
+                                        <h5>Öğrenci Proje Başvuruları</h5>
                                     </div>
                                     <li><a href="ogrproje" class="dropdown-item"><i class="feather icon-plus"></i>Yeni Proje Öner</a></li>
+                                    <div class="card-block table-border-style">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+
+                                                        <th>Ad</th>
+                                                        <th>Soyad</th>
+                                                        <th>Numara</th>
+                                                        <th>Başvuru Türü</th>
+                                                        <th>Başvuru Durumu</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody >
+
+                                                    @forelse ($bilgi as $key => $val)
+                                                    <input  type="hidden" class="form-control" name="kad"  {{ $akey=$val ['id']}} placeholder="Kullanıcı Adı">
+                                                    {{-- @php
+                                                    dd($bilgi2);
+                                                @endphp --}}
+                                                    <tr>
+                                                        <td>{{  session()->get('ogr')->ad}}</td>
+                                                        <td>{{ session()->get('ogr')->soyad }}</td>
+                                                        <td>{{ session()->get('ogr')->no }}</td>
+                                                         <td>{{ $veri}}</td>
+                                                         <td>{{ $val ["durum"]}}</td>
+                                                      </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="4">Veri bulunamadı</td>
+                                        </tr>
+                                        @endforelse
+
+
+                                        </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Öğrenci Rapor Başvuruları</h5>
+                                    </div>
+                                    <li><a href="ogrrapor" class="dropdown-item"><i class="feather icon-plus"></i>Yeni Rapor Öner</a></li>
                                     <div class="card-block table-border-style">
                                         <div class="table-responsive">
                                             <table class="table table-hover">
@@ -178,8 +224,52 @@
                                                         <td>{{  session()->get('ogr')->ad}}</td>
                                                         <td>{{ session()->get('ogr')->soyad }}</td>
                                                         <td>{{ session()->get('ogr')->no }}</td>
-                                                         <td>{{ $bilgi}}</td>
+                                                         <td>{{ $veri2}}</td>
                                                          <td>{{ $val2 ["durum"]}}</td>
+                                                      </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="4">Veri bulunamadı</td>
+                                        </tr>
+                                        @endforelse
+
+
+                                        </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Öğrenci Tez Başvuruları</h5>
+                                    </div>
+                                    <li><a href="ogrtez" class="dropdown-item"><i class="feather icon-plus"></i>Yeni Tez Öner</a></li>
+                                    <div class="card-block table-border-style">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+
+                                                        <th>Ad</th>
+                                                        <th>Soyad</th>
+                                                        <th>Numara</th>
+                                                        <th>Başvuru Türü</th>
+                                                        <th>Başvuru Durumu</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody >
+
+                                                    @forelse ($bilgi3 as $key3 => $val3)
+                                                    <input  type="hidden" class="form-control" name="kad"  {{ $akey3=$val3 ['id']}} placeholder="Kullanıcı Adı">
+
+                                                    <tr>
+                                                        <td>{{  session()->get('ogr')->ad}}</td>
+                                                        <td>{{ session()->get('ogr')->soyad }}</td>
+                                                        <td>{{ session()->get('ogr')->no }}</td>
+                                                         <td>{{ $veri3}}</td>
+                                                         <td>{{ $val3 ["durum"]}}</td>
                                                       </tr>
                                         @empty
                                         <tr>

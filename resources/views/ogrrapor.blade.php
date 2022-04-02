@@ -147,10 +147,11 @@
                             <div class="col-sm-12">
                                 <div class="card">{{$verii=""}}
                                     @forelse ($bilgi2 as $key2 => $val2)
-                                    <input  type="hidden" class="form-control" name="kad"    {{ $akey=$val2 ["durum"]}} placeholder="Kullanıcı Adı">
+                                    <input  type="hidden" class="form-control" name="kad"  {{ $akey2=$val2 ["oneri_id"]}}    {{ $akey=$val2 ["durum"]}} placeholder="Kullanıcı Adı">
                                         @if($akey=="kabul")
 
-                                     <input  type="hidden" class="form-control" name="kabul"        {{$verii=$akey}}  placeholder="Kullanıcı Adı">
+                                     <input  type="hidden" class="form-control" name="kabul"  {{$verii2=$akey2}}       {{$verii=$akey}}  placeholder="Kullanıcı Adı">
+
                                         @else
                                         @endif
 
@@ -161,18 +162,19 @@
                         @endforelse
 
                                     {{-- @php
-                                    dd($verii);
+                                    dd($verii2);
                                 @endphp --}}
-                             
-                                    
+
+
                                 @if("kabul"==$verii)
-                                
+
                                     <div class="card-body">
                                         <h5>1.Yükleme</h5>
                                         <hr>
                                         <form action="{{ route('file.upload.post') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <input type="hidden" name="ogrno" value={{ session()->get('ogr')->no}}>
+                                            <input  type="hidden" class="form-control" name="veri"  value="{{$verii2}}">
                                             <div style="padding:10px">
                                               <label for="file">1.PDF Dosyası Ekleyiniz.&nbsp&nbsp&nbsp&nbsp</label>
 
@@ -194,46 +196,46 @@
                                               <input type="file" class="btn btn-square btn-light" name="file6"  accept=".docx">
 
 
-                                              
+
                                               <div class="card">
                                                 <hr>
 
 
                                                 <button type="submit"  class="btn btn-outline-primary" title="Raporu Öner" data-toggle="tooltip">Raporu Öner</button>
                                                 <hr>
-                                            
+
                                             </div>
 
-                                            </div>}
-                                            
+                                            </div>
 
 
-                                        
-                                            @if ($message = Session::get('success'))      
-                                        <div class="alert alert-success alert-block">            
-                                            <button type="button" class="close" data-dismiss="alert">×</button>               
-                                            <strong>{{ $message }}</strong>       
-                                        </div>        
-                                        @endif
-        
-                                        @if (count($errors) > 0)           
-                                        <div class="alert alert-danger">               
-                                            <strong>Uyarı!</strong> Tüm belgeleri eksiksiz atınız.               
-                                            <ul>
-                   
-                                                @foreach ($errors->all() as $error)
-                        
-                                                <li>{{ $error }}</li>
-                   
-                        
-                                                @endforeach
-                
-                                            </ul>
-            
+
+
+                                            @if ($message = Session::get('success'))
+                                        <div class="alert alert-success alert-block">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <strong>{{ $message }}</strong>
                                         </div>
-                                      
+                                        @endif
+
+                                        @if (count($errors) > 0)
+                                        <div class="alert alert-danger">
+                                            <strong>Uyarı!</strong> Tüm belgeleri eksiksiz atınız.
+                                            <ul>
+
+                                                @foreach ($errors->all() as $error)
+
+                                                <li>{{ $error }}</li>
+
+
+                                                @endforeach
+
+                                            </ul>
+
+                                        </div>
+
         @endif
-        
+
 
 
 
@@ -258,6 +260,6 @@
   <div class="alert alert-danger" role="alert">
   <strong>Proje öneriniz onaylanmadı.</strong>
 </div>
-  
+
   @endif
 

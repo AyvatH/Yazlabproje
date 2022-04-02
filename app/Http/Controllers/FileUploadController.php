@@ -84,7 +84,7 @@ class FileUploadController extends Controller
 
 
         Projetez::create
-        (["pdf_path"=>"pdfs/".$fileName,"word_path"=>"words/".$fileName2,"durum"=>"beklemede"]);
+        (["pdf_path"=>"pdfs/".$fileName,"word_path"=>"words/".$fileName2,"durum"=>"beklemede","rapor_id"=>$request->veri]);
 
         return back()
             ->with('success','Başarıyla dosyaları gönderdiniz.')
@@ -124,7 +124,7 @@ class FileUploadController extends Controller
         $request->file6->move(public_path('words'), $fileName6);
 
         Projerapor::create
-        (["pdf_path"=>"pdfs/".$fileName,"word_path"=>"words/".$fileName2,"pdf2_path"=>"pdfs/".$fileName3,"pdf3_path"=>"pdfs/".$fileName5,"word2_path"=>"words/".$fileName4,"word3_path"=>"words/".$fileName6,"durum"=>"beklemede"]);
+        (["pdf_path"=>"pdfs/".$fileName,"word_path"=>"words/".$fileName2,"pdf2_path"=>"pdfs/".$fileName3,"pdf3_path"=>"pdfs/".$fileName5,"word2_path"=>"words/".$fileName4,"word3_path"=>"words/".$fileName6,"durum"=>"beklemede","proje_id"=>$request->veri]);
 
 
 

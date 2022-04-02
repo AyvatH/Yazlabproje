@@ -146,10 +146,10 @@
                         <div class="row">
                             <div class="col-sm-12">{{$verii=""}}
                                 @forelse ($bilgi2 as $key2 => $val2)
-                                    <input  type="hidden" class="form-control" name="kad"    {{ $akey=$val2 ["durum"]}} placeholder="Kullanıcı Adı">
+                                    <input  type="hidden" class="form-control" name="kad"  {{ $akey2=$val2 ["rapor_id"]}}    {{ $akey=$val2 ["durum"]}} placeholder="Kullanıcı Adı">
                                         @if($akey=="kabul")
 
-                                     <input  type="hidden" class="form-control" name="kabul"        {{$verii=$akey}}  placeholder="Kullanıcı Adı">
+                                     <input  type="hidden" class="form-control" name="kabul"  {{$verii2=$akey2}}       {{$verii=$akey}}  placeholder="Kullanıcı Adı">
                                         @else
                                         @endif
 
@@ -158,12 +158,12 @@
                             <td colspan="4">Veri bulunamadı</td>
                         </tr>
                         @endforelse
-{{-- 
-                                    @php
-                                    dd($verii);
+
+                                    {{-- @php
+                                    dd($verii2);
                                 @endphp --}}
-                             
-                                    
+
+
                                 @if("kabul"==$verii)
                                 <div class="card">
                                     <div class="card-body">
@@ -172,6 +172,7 @@
                                         <form action="{{ route('tez.upload.post') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <input type="hidden" name="ogrno" value={{ session()->get('ogr')->no}}>
+                                            <input  type="hidden" class="form-control" name="veri"  value="{{$verii2}}">
                                             <div style="padding:10px">
                                               <label for="file">1.PDF Dosyası Ekleyiniz.&nbsp&nbsp&nbsp&nbsp</label>
 
@@ -213,7 +214,7 @@
 
 
                                 </div>
-                                
+
 
                             </div>
                         </div>
@@ -230,7 +231,7 @@
   <div class="alert alert-danger" role="alert">
   <strong>Proje raporunuz onaylanmadı.</strong>
 </div>
-  
+
   @endif
- 
+
 

@@ -87,9 +87,22 @@ dd("Atama işlemi yapılmıştır.");}
 
     public function liste2()
     {
-        $bilgi2=Proje::get();
-        $bilgi="Proje Öneri";
-        return view('ogrbasvurular',compact('bilgi2',"bilgi"));
+        $veri="Proje Öneri";
+        $veri2="Proje Rapor";
+        $veri3="Proje Tez";
+
+        $ogrid=session()->get('ogr')->id;
+        $bilgi=Ogrenci:: join("projeoneri","ogrenciler.id","projeoneri.num_id")->where("ogrenciler.id",$ogrid)->
+        get(["projeoneri.*"]);
+        $bilgi2=Ogrenci:: join("projeoneri","ogrenciler.id","projeoneri.num_id")->where("ogrenciler.id",$ogrid)->
+        join("projerapor","projerapor.proje_id","projeoneri.oneri_id")->
+        get(["projerapor.*"]);
+        $bilgi3=Ogrenci:: join("projeoneri","ogrenciler.id","projeoneri.num_id")->where("ogrenciler.id",$ogrid)->
+        join("projerapor","projerapor.proje_id","projeoneri.oneri_id")->
+        join("projetez","projerapor.rapor_id","projetez.rapor_id")->
+        get(["projetez.*"]);
+        //  dd($bilgi2);
+        return view('ogrbasvurular',compact('bilgi2',"bilgi","bilgi3","veri","veri2","veri3"));
     }
     public function liste3()
     {
@@ -159,14 +172,14 @@ dd("Atama işlemi yapılmıştır.");}
 
     public function liste6()
     {
-        $bilgi2=Ogrenci::join("projeoneri","projeoneri.num_id","ogrenciler.id")->get(["ogrenciler.*","projeoneri.durum"]);
+        $bilgi2=Ogrenci::join("projeoneri","projeoneri.num_id","ogrenciler.id")->get(["ogrenciler.*","projeoneri.durum","projeoneri.oneri_id"]);
 
         return view('ogrrapor',compact('bilgi2'));
     }
     public function liste7()
     {
         $bilgi2=Ogrenci::join("projeoneri","projeoneri.num_id","ogrenciler.id")->
-        join("projerapor","projeoneri.oneri_id","projerapor.proje_id")->get(["ogrenciler.*","projerapor.durum"]);
+        join("projerapor","projeoneri.oneri_id","projerapor.proje_id")->get(["ogrenciler.*","projerapor.durum","projerapor.rapor_id"]);
 
         return view('ogrtez',compact('bilgi2'));
     }
