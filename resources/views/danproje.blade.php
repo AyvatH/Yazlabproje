@@ -144,58 +144,6 @@
                         <div class="page-wrapper">
                             <!-- [ Main Content ] start -->
                             <div class="row">
-                                <!--[ daily sales section ] start-->
-                                <div class="col-md-6 col-xl-4">
-                                    <div class="card daily-sales">
-                                        <div class="card-block">
-                                            <h6 class="mb-4">Başvuru Sayısı</h6>
-                                            <div class="row d-flex align-items-center">
-                                                <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>AYWAT EKLE</h3>
-                                                </div>
-                                            </div>
-                                            <div class="progress m-t-30" style="height: 7px;">
-                                                <div class="progress-bar progress-c-theme" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--[ daily sales section ] end-->
-                                <!--[ Monthly  sales section ] starts-->
-                                <div class="col-md-6 col-xl-4">
-                                    <div class="card Monthly-sales">
-                                        <div class="card-block">
-                                            <h6 class="mb-4">Onaylanmamış Başvuru Sayısı</h6>
-                                            <div class="row d-flex align-items-center">
-                                                <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-down text-c-red f-30 m-r-10"></i>AYWAT EL AT</h3>
-                                                </div>
-                                            </div>
-                                            <div class="progress m-t-30" style="height: 7px;">
-                                                <div class="progress-bar progress-c-theme2" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--[ Monthly  sales section ] end-->
-                                <!--[ year  sales section ] starts-->
-                                <div class="col-md-12 col-xl-4">
-                                    <div class="card yearly-sales">
-                                        <div class="card-block">
-                                            <h6 class="mb-4">Onaylanan Başvuru Sayısı</h6>
-                                            <div class="row d-flex align-items-center">
-                                                <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>AYWAT EKLE</h3>
-                                                </div>
-                                            </div>
-                                            <div class="progress m-t-30" style="height: 7px;">
-                                                <div class="progress-bar progress-c-theme" role="progressbar" style="width: 80%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!--[ year  sales section ] end-->
 
                             <!-- [ Hover-table ] start -->
                             <div class="col-xl-12">
@@ -213,6 +161,7 @@
                                                         <th>Soyad</th>
                                                         <th>Numara</th>
                                                         <th>Proje Başlıgı</th>
+                                                        <th>Proje Durumu</th>
                                                         <th>İçerigi Gör</th>
                                                         <th>Onayla</th>
                                                         <th>Açıklama</th>
@@ -224,27 +173,31 @@
                                                 <tbody >
 
                                                     @forelse ($bilgi2 as $key2 => $val2)
-                                                    <input  type="hidden" class="form-control" name="kad"  {{ $akey2=$val2 ['id']}} placeholder="Kullanıcı Adı">
+                                                    <input  type="hidden" class="form-control" name="kad"  {{ $akey2=$val2 ['oneri_id']}} placeholder="Kullanıcı Adı">
 
                                                     <tr>
                                                         <td>{{  $val2 ['ad']}}</td>
                                                         <td>{{ $val2 ['soyad'] }}</td>
                                                          <td>{{ $val2 ["no"]}}</td>
                                                          <td>{{ $val2 ["baslik"]}}</td>
+                                                         <td>{{ $val2 ["durum"]}}</td>
                                                          <td>
-                                                            <a href="{{url("duzenle/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">İçerigi Gör</a>
+                                                             {{-- @php
+                                                                 dd($val2 ['id'])
+                                                             @endphp --}}
+                                                            <a href="{{url("icerik/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">İçerigi Gör</a>
 
                                                          </td>
                                                         <td>
-                                                            <a href="{{url("duzenle/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Onayla</a>
+                                                            <a href="{{url("projeonayla/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Onayla</a>
 
                                                          </td>
                                                          <td>
-                                                            <a href="{{url("acıklama/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Açıklama</a>
+                                                            <a href="{{url("aciklama/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Açıklama</a>
 
                                                          </td>
 
-                                                         <td>   <a href="{{url("sil2/$akey2")}}" type="submit" class="label theme-bg2 text-white f-12">Reddet</a>
+                                                         <td>   <a href="{{url("projereddet/$akey2")}}" type="submit" class="label theme-bg2 text-white f-12">Reddet</a>
                                         </td>
 
                                     </tr>

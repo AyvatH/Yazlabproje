@@ -145,13 +145,18 @@
                                     <div class="card">
                                     <div class="card-body text-center">
                                         <div class="mb-4">
-                                            <form id="addCustomer"  class="form-group" method="POST" action="" >
+                                            <form id="addCustomer"  class="form-group" method="POST" action="{{route('guncelg')}}" >
                                                 @csrf <!-- {{ csrf_field() }} -->
+                                                <input type="hidden" value="{{$aakey=$dataa['oneri_id']}}" name="id">
+                                                {{-- @php
+                                                    dd($aakey);
+                                                @endphp --}}
                                         </div>
                                         <div class="form-group">
                                         <label for="exampleFormControlTextarea1">Açıklama Ekleyiniz</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" column="200" rows="6" ></textarea>
-                                        <button type="button" class="btn btn-square btn-dark">Açıklamayı Kaydet</button>
+
+                                        <textarea class="form-control" name="aciklama" id="exampleFormControlTextarea1" column="200" rows="6" ></textarea>
+                                        <button type="submit" class="btn btn-square btn-dark">Açıklamayı Kaydet</button>
                                         </div>
 
                                     </div>
@@ -181,5 +186,4 @@
 
 
 
-         
-        
+

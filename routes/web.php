@@ -25,6 +25,7 @@ Route::view('dngiris','dngiris')->middleware("Danoturumkontrol","Ogroturumkontro
 Route::view('sifre','sifre');
 
 Route::view('ograna','ograna');
+// Route::view('icerik','icerik');
 Route::view('adminatama','adminatama');
 Route::view('donemekle','donemekle');
 Route::view('ogrprofil','ogrprofil')->middleware("Ogrlogin");
@@ -36,7 +37,7 @@ Route::view('ogrbasvurular','ogrbasvurular')->middleware("Ogrlogin");
 Route::view('dananasay','dananasay');
 Route::view('danbasvurular','danbasvurular')->middleware("Danlogin");
 Route::view('danogrlist','danogrlist')->middleware("Danlogin");
-Route::view('danproje','danproje')->middleware("Danlogin");
+// Route::view('danproje','danproje')->middleware("Danlogin");
 Route::view('danrapor','danrapor')->middleware("Danlogin");
 Route::view('dantez','dantez')->middleware("Danlogin");
 Route::view('danprofil','danprofil')->middleware("Danlogin");
@@ -76,12 +77,15 @@ Route::get('donemekle',[ProjeVt::class,'liste8'])->name("donem.ekle");
 Route::get('sisogrekle',[ProjeVt::class,'liste9'])->name("ogrdonem.ekle");
 Route::get('sisdanekle',[ProjeVt::class,'liste10'])->name("dandonem.ekle");
 
+
 Route::get('ogrrapor',[ProjeVt::class,'liste6'])->name("ogr.rapor");
 
 Route::get('danogrlist',[ProjeVt::class,'liste5'])->name("danogr.liste");
 Route::get('ogrprofil',[ProjeVt::class,'liste4'])->name("ogr.profile");
 Route::get('ogrbasvurular',[ProjeVt::class,'liste2'])->name("ogr.liste");
 Route::get('danproje',[ProjeVt::class,'liste3'])->name("danproje.liste");
+Route::get('danrapor',[ProjeVt::class,'liste11'])->name("danrapor.liste");
+Route::get('dantez',[ProjeVt::class,'liste12'])->name("dantez.liste");
 Route::post('sisogrgun',[ProjeVt::class,'guncelled'])->name("guncel");
 Route::post('sisdandzn',[ProjeVt::class,'guncelled2'])->name("guncel2");
 
@@ -91,9 +95,29 @@ Route::get('duzenle/{id}',[ProjeVt::class,'guncelle2']);
 Route::get('sil2/{id}',[ProjeVt::class,'sil2']);
 
 
+Route::get('icerik/{id}',[ProjeVt::class,'icerik']);
+Route::get('sil/{id}',[ProjeVt::class,'sil']);
+
 
 Route::get('aktif/{id}',[ProjeVt::class,'aktif']);
 Route::get('pasif/{id}',[ProjeVt::class,'pasif']);
+
+Route::get('projeonayla/{id}',[ProjeVt::class,'projeonay']);
+Route::get('projereddet/{id}',[ProjeVt::class,"projered"]);
+Route::get('aciklama/{id}',[ProjeVt::class,"aciklama"]);
+Route::post('danproje',[ProjeVt::class,"aciklamag"])->name("guncelg");
+
+
+Route::get('raporonayla/{id}',[ProjeVt::class,'raporonay']);
+Route::get('raporreddet/{id}',[ProjeVt::class,"raporred"]);
+Route::get('aciklama2/{id}',[ProjeVt::class,"aciklama2"]);
+Route::post('danrapor',[ProjeVt::class,"aciklamag2"])->name("guncelg2");
+
+Route::get('tezonayla/{id}',[ProjeVt::class,'tezonay']);
+Route::get('tezreddet/{id}',[ProjeVt::class,"tezred"]);
+Route::get('aciklama3/{id}',[ProjeVt::class,"aciklama3"]);
+Route::post('dantez',[ProjeVt::class,"aciklamag3"])->name("guncelg3");
+
 
 
 

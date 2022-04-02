@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
-
-
-
+use App\Models\Projerapor;
+use App\Models\Projetez;
 
 class ProjeVt extends Controller
 {
@@ -25,6 +24,7 @@ class ProjeVt extends Controller
         return view('adminatama');
 
     }
+
 
     public function atama()
     {
@@ -93,15 +93,43 @@ dd("Atama işlemi yapılmıştır.");}
     }
     public function liste3()
     {
-        $bilgi2=Proje::join("ogrenciler","ogrenciler.id","projeoneri.num_id")->get(["projeoneri.*","ogrenciler.ad","ogrenciler.soyad","ogrenciler.no"]);
-
-        // $bilgi2=Proje::join("ogrenciler","ogrenciler.id","projeoneri.num_id")
-        //              ->join("atama","atama.ogr_id","ogrenciler.id")
-        //               ->get(["projeoneri.*","ogrenciler.ad","ogrenciler.soyad","ogrenciler.no","atama.id as atama_id"]);
-
+        $danid=session()->get('dan')->id;
+        $bilgi2=Atama::join("ogrenciler","ogrenciler.id","atama.ogr_id")->
+        join("danisman","danisman.id","atama.dan_id")->where("danisman.id",$danid)->
+        join("projeoneri","ogrenciler.id","projeoneri.num_id")->
+        get(['projeoneri.oneri_id','ogrenciler.ad','ogrenciler.soyad',"ogrenciler.no","ogrenciler.sinif","ogrenciler.eposta","projeoneri.baslik","projeoneri.durum","projeoneri.amac","projeoneri.materyal",
+    "projeoneri.anahtar_kelime",
+    "projeoneri.anahtar_kelime2",
+    "projeoneri.anahtar_kelime3",
+    "projeoneri.anahtar_kelime4",
+    "projeoneri.anahtar_kelime5"]);
         // dd($bilgi2);
-        $bilgi="Proje Öneri";
-        return view('danproje',compact('bilgi2',"bilgi"));
+        return view('danproje',compact('bilgi2'));
+    }
+    public function liste11()
+    {
+        $danid=session()->get('dan')->id;
+        $bilgi2=Atama::join("ogrenciler","ogrenciler.id","atama.ogr_id")->
+        join("danisman","danisman.id","atama.dan_id")->where("danisman.id",$danid)->
+        join("projeoneri","ogrenciler.id","projeoneri.num_id")->
+        join("projerapor","projerapor.proje_id","projeoneri.oneri_id")->
+        get(['projeoneri.oneri_id','ogrenciler.ad','ogrenciler.soyad',"ogrenciler.no","ogrenciler.sinif","ogrenciler.eposta","projeoneri.baslik"
+    ,"pdf_path","pdf2_path","pdf3_path","word_path","word2_path","word3_path","projerapor.durum","projerapor.rapor_id"]);
+        // dd($bilgi2);
+        return view('danrapor',compact('bilgi2'));
+    }
+    public function liste12()
+    {
+        $danid=session()->get('dan')->id;
+        $bilgi2=Atama::join("ogrenciler","ogrenciler.id","atama.ogr_id")->
+        join("danisman","danisman.id","atama.dan_id")->where("danisman.id",$danid)->
+        join("projeoneri","ogrenciler.id","projeoneri.num_id")->
+        join("projerapor","projerapor.proje_id","projeoneri.oneri_id")->
+        join("projetez","projerapor.rapor_id","projetez.rapor_id")->
+        get(['projeoneri.oneri_id','ogrenciler.ad','ogrenciler.soyad',"ogrenciler.no","ogrenciler.sinif","ogrenciler.eposta","projeoneri.baslik"
+                ,"projetez.pdf_path","projetez.word_path","projetez.tez_id","projetez.durum","projerapor.rapor_id"]);
+        // dd($bilgi2);
+        return view('dantez',compact('bilgi2'));
     }
     public function liste4()
     {
@@ -128,6 +156,7 @@ dd("Atama işlemi yapılmıştır.");}
         // dd($bilgi2);
         return view('danogrlist',compact('bilgi2'));
     }
+
     public function liste6()
     {
         $bilgi2=Ogrenci::join("projeoneri","projeoneri.num_id","ogrenciler.id")->get(["ogrenciler.*","projeoneri.durum"]);
@@ -168,6 +197,15 @@ dd("Atama işlemi yapılmıştır.");}
         return view('sisogrgun',compact('dataa','veri'));
 
       }
+      public function icerik($id)
+      {
+
+          $veri=$id;
+          $dataa=Proje::where("oneri_id",$veri)->first();
+// dd($dataa);
+          return view('icerik',compact('dataa','veri'));
+
+        }
 
       public function aktif($id)
       {
@@ -177,6 +215,151 @@ dd("Atama işlemi yapılmıştır.");}
           Donem::where('id',$veri)->update(["aktif_donem"=>"aktif"]);
           return redirect()->back()->with("bilgi",$bilgi);
         }
+        public function projeonay($id)
+      {
+        $danid=session()->get('dan')->id;
+        $bilgi2=Atama::join("ogrenciler","ogrenciler.id","atama.ogr_id")->
+        join("danisman","danisman.id","atama.dan_id")->where("danisman.id",$danid)->
+        join("projeoneri","ogrenciler.id","projeoneri.num_id")->
+        get(['projeoneri.oneri_id','ogrenciler.ad','ogrenciler.soyad',"ogrenciler.no","ogrenciler.sinif","ogrenciler.eposta","projeoneri.baslik","projeoneri.durum","projeoneri.amac","projeoneri.materyal",
+    "projeoneri.anahtar_kelime",
+    "projeoneri.anahtar_kelime2",
+    "projeoneri.anahtar_kelime3",
+    "projeoneri.anahtar_kelime4",
+    "projeoneri.anahtar_kelime5"]);
+        // dd($bilgi2);
+          $veri=$id;
+          $dataa=Proje::where("oneri_id",$veri)->first();
+          Proje::where('oneri_id',$veri)->update(["durum"=>"kabul"]);
+          return redirect()->back()->with("bilgi2",$bilgi2);
+        }
+        public function tezonay($id)
+        {  $danid=session()->get('dan')->id;
+            $bilgi2=Atama::join("ogrenciler","ogrenciler.id","atama.ogr_id")->
+            join("danisman","danisman.id","atama.dan_id")->where("danisman.id",$danid)->
+            join("projeoneri","ogrenciler.id","projeoneri.num_id")->
+            join("projerapor","projerapor.proje_id","projeoneri.oneri_id")->
+            join("projetez","projerapor.rapor_id","projetez.rapor_id")->
+            get(['projeoneri.oneri_id','ogrenciler.ad','ogrenciler.soyad',"ogrenciler.no","ogrenciler.sinif","ogrenciler.eposta","projeoneri.baslik"
+        ,"projetez.pdf_path","projetez.word_path","projetez.tez_id","projetez.durum","projerapor.durum","projerapor.rapor_id"]);
+          // dd($bilgi2);
+            $veri=$id;
+            $dataa=Projetez::where("tez_id",$veri)->first();
+            Projetez::where('tez_id',$veri)->update(["durum"=>"kabul"]);
+            return redirect()->back()->with("bilgi2",$bilgi2);
+          }
+          public function tezred($id)
+        {  $danid=session()->get('dan')->id;
+            $bilgi2=Atama::join("ogrenciler","ogrenciler.id","atama.ogr_id")->
+            join("danisman","danisman.id","atama.dan_id")->where("danisman.id",$danid)->
+            join("projeoneri","ogrenciler.id","projeoneri.num_id")->
+            join("projerapor","projerapor.proje_id","projeoneri.oneri_id")->
+            join("projetez","projerapor.rapor_id","projetez.rapor_id")->
+            get(['projeoneri.oneri_id','ogrenciler.ad','ogrenciler.soyad',"ogrenciler.no","ogrenciler.sinif","ogrenciler.eposta","projeoneri.baslik"
+        ,"projetez.pdf_path","projetez.word_path","projetez.tez_id","projetez.durum","projerapor.durum","projerapor.rapor_id"]);
+          // dd($bilgi2);
+            $veri=$id;
+            $dataa=Projetez::where("tez_id",$veri)->first();
+            Projetez::where('tez_id',$veri)->update(["durum"=>"red"]);
+            return redirect()->back()->with("bilgi2",$bilgi2);
+          }
+        public function raporonay($id)
+        {
+            $danid=session()->get('dan')->id;
+            $bilgi2=Atama::join("ogrenciler","ogrenciler.id","atama.ogr_id")->
+            join("danisman","danisman.id","atama.dan_id")->where("danisman.id",$danid)->
+            join("projeoneri","ogrenciler.id","projeoneri.num_id")->
+            join("projerapor","projerapor.proje_id","projeoneri.oneri_id")->
+            get(['projeoneri.oneri_id','ogrenciler.ad','ogrenciler.soyad',"ogrenciler.no","ogrenciler.sinif","ogrenciler.eposta","projeoneri.baslik"
+        ,"pdf_path","pdf2_path","pdf3_path","word_path","word2_path","word3_path","projerapor.durum","projerapor.rapor_id"]);
+          // dd($bilgi2);
+            $veri=$id;
+            $dataa=Projerapor::where("rapor_id",$veri)->first();
+            Projerapor::where('rapor_id',$veri)->update(["durum"=>"kabul"]);
+            return redirect()->back()->with("bilgi2",$bilgi2);
+          }
+          public function raporred($id)
+        {
+            $danid=session()->get('dan')->id;
+            $bilgi2=Atama::join("ogrenciler","ogrenciler.id","atama.ogr_id")->
+            join("danisman","danisman.id","atama.dan_id")->where("danisman.id",$danid)->
+            join("projeoneri","ogrenciler.id","projeoneri.num_id")->
+            join("projerapor","projerapor.proje_id","projeoneri.oneri_id")->
+            get(['projeoneri.oneri_id','ogrenciler.ad','ogrenciler.soyad',"ogrenciler.no","ogrenciler.sinif","ogrenciler.eposta","projeoneri.baslik"
+        ,"pdf_path","pdf2_path","pdf3_path","word_path","word2_path","word3_path","projerapor.durum","projerapor.rapor_id"]);
+          // dd($bilgi2);
+            $veri=$id;
+            $dataa=Projerapor::where("rapor_id",$veri)->first();
+            Projerapor::where('rapor_id',$veri)->update(["durum"=>"red"]);
+            return redirect()->back()->with("bilgi2",$bilgi2);
+          }
+          public function aciklama2($id)
+          {
+            $danid=session()->get('dan')->id;
+            $bilgi2=Atama::join("ogrenciler","ogrenciler.id","atama.ogr_id")->
+            join("danisman","danisman.id","atama.dan_id")->where("danisman.id",$danid)->
+            join("projeoneri","ogrenciler.id","projeoneri.num_id")->
+            join("projerapor","projerapor.proje_id","projeoneri.oneri_id")->
+            get(['projeoneri.oneri_id','ogrenciler.ad','ogrenciler.soyad',"ogrenciler.no","ogrenciler.sinif","ogrenciler.eposta","projeoneri.baslik"
+        ,"pdf_path","pdf2_path","pdf3_path","word_path","word2_path","word3_path","projerapor.durum","projerapor.rapor_id"]);
+            // dd($bilgi2);
+              $veri=$id;
+              $dataa=Projerapor::where("rapor_id",$veri)->first();
+              Projerapor::where('rapor_id',$veri)->update(["durum"=>"kabul"]);
+              return view('aciklama2',compact('dataa','veri'));
+            }
+            public function aciklama3($id)
+            {
+                $danid=session()->get('dan')->id;
+                $bilgi2=Atama::join("ogrenciler","ogrenciler.id","atama.ogr_id")->
+                join("danisman","danisman.id","atama.dan_id")->where("danisman.id",$danid)->
+                join("projeoneri","ogrenciler.id","projeoneri.num_id")->
+                join("projerapor","projerapor.proje_id","projeoneri.oneri_id")->
+                join("projetez","projerapor.rapor_id","projetez.rapor_id")->
+                get(['projeoneri.oneri_id','ogrenciler.ad','ogrenciler.soyad',"ogrenciler.no","ogrenciler.sinif","ogrenciler.eposta","projeoneri.baslik"
+            ,"projetez.pdf_path","projetez.word_path","projetez.tez_id","projetez.durum","projerapor.durum","projerapor.rapor_id"]);
+              // dd($bilgi2);
+                $veri=$id;
+                $dataa=Projetez::where("tez_id",$veri)->first();
+                Projetez::where('tez_id',$veri)->update(["durum"=>"kabul"]);
+                return view('aciklama3',compact('dataa','veri'));
+              }
+        public function aciklama($id)
+        {
+          $danid=session()->get('dan')->id;
+          $bilgi2=Atama::join("ogrenciler","ogrenciler.id","atama.ogr_id")->
+          join("danisman","danisman.id","atama.dan_id")->where("danisman.id",$danid)->
+          join("projeoneri","ogrenciler.id","projeoneri.num_id")->
+          get(['projeoneri.oneri_id','ogrenciler.ad','ogrenciler.soyad',"ogrenciler.no","ogrenciler.sinif","ogrenciler.eposta","projeoneri.baslik","projeoneri.durum","projeoneri.amac","projeoneri.materyal",
+      "projeoneri.anahtar_kelime",
+      "projeoneri.anahtar_kelime2",
+      "projeoneri.anahtar_kelime3",
+      "projeoneri.anahtar_kelime4",
+      "projeoneri.anahtar_kelime5"]);
+          // dd($bilgi2);
+            $veri=$id;
+            $dataa=Proje::where("oneri_id",$veri)->first();
+            Proje::where('oneri_id',$veri)->update(["durum"=>"kabul"]);
+            return view('aciklama',compact('dataa','veri'));
+          }
+        public function projered($id,Request $request)
+        {
+          $danid=session()->get('dan')->id;
+          $bilgi2=Atama::join("ogrenciler","ogrenciler.id","atama.ogr_id")->
+          join("danisman","danisman.id","atama.dan_id")->where("danisman.id",$danid)->
+          join("projeoneri","ogrenciler.id","projeoneri.num_id")->
+          get(['projeoneri.oneri_id','ogrenciler.ad','ogrenciler.soyad',"ogrenciler.no","ogrenciler.sinif","ogrenciler.eposta","projeoneri.baslik","projeoneri.durum","projeoneri.amac","projeoneri.materyal",
+      "projeoneri.anahtar_kelime",
+      "projeoneri.anahtar_kelime2",
+      "projeoneri.anahtar_kelime3",
+      "projeoneri.anahtar_kelime4",
+      "projeoneri.anahtar_kelime5"]);
+          // dd($bilgi2);
+            $veri=$id;
+            $dataa=Proje::where("oneri_id",$veri)->first();
+            Proje::where('oneri_id',$veri)->update(["aciklama"=>$request->aciklama]);
+            return redirect()->back()->with("bilgi2",$bilgi2);
+          }
 
         public function pasif($id)
         {
@@ -217,6 +400,39 @@ dd("Atama işlemi yapılmıştır.");}
            return redirect()->route('admin.home');
 
           }
+          public function aciklamag(Request $request)
+          {
+            $request->validate([
+                'aciklama'=>"required",
+
+            ]);
+            // dd($request->aciklama);
+            Proje::where('oneri_id',$request->id)->update(["aciklama"=>$request->aciklama]);
+             return redirect()->route('danproje.liste');
+
+            }
+            public function aciklamag2(Request $request)
+            {
+              $request->validate([
+                  'aciklama'=>"required",
+
+              ]);
+              // dd($request->aciklama);
+              Projerapor::where('rapor_id',$request->id)->update(["aciklama"=>$request->aciklama]);
+               return redirect()->route('danrapor.liste');
+
+              }
+              public function aciklamag3(Request $request)
+              {
+                $request->validate([
+                    'aciklama'=>"required",
+
+                ]);
+                // dd($request->aciklama);
+                Projetez::where('tez_id',$request->id)->update(["aciklama"=>$request->aciklama]);
+                 return redirect()->route('dantez.liste');
+
+                }
       public function guncelled2(Request $request)
       {
         $request->validate([

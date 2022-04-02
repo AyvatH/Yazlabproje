@@ -17,14 +17,14 @@
     <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template"/>
     <meta name="author" content="CodedThemes"/>
 
-    <!-- Favicon icon -->
-    <link rel="icon" href="{{url('images/logoo.png')}}" type="image/x-icon">
-    <!-- fontawesome icon -->
-    <link rel="stylesheet" href="fonts/fontawesome/css/fontawesome-all.min.css">
-    <!-- animation css -->
-    <link rel="stylesheet" href="plugins/animation/css/animate.min.css">
-    <!-- vendor css -->
-    <link rel="stylesheet" href="css/style.css">
+  <!-- Favicon icon -->
+  <link rel="icon" href="{{url('images/logoo.png')}}" type="image/x-icon">
+     <!-- fontawesome icon -->
+     <link rel="stylesheet" href="{{url('fonts/fontawesome/css/fontawesome-all.min.css')}}">
+     <!-- animation css -->
+     <link rel="stylesheet" href="{{url('css/animate.min.css')}}">
+     <!-- vendor css -->
+     <link rel="stylesheet" href="{{url('css/style.css')}}">
 
 </head>
 
@@ -44,7 +44,7 @@
             <div class="navbar-brand header-logo">
                <a href="dananasay" class="b-brand">
                    <div class="b-bg">
-                   <i ><img src="{{url('images/logoo.png')}}" width="50px" height="50px"></i>
+                    <i ><img src="{{url('images/logoo.png')}}" width="50px" height="50px"></i>
                    </div>
                    <span class="b-title">Danışman</span>
                </a>
@@ -129,7 +129,7 @@
                             <div class="row align-items-center">
                                 <div class="col-md-12">
                                     <div class="page-header-title">
-                                        <h5 class="m-b-10">Tez Önerileri</h5>
+                                        <h5 class="m-b-10">Proje Önerileri</h5>
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="dananasay"><i class="feather icon-home"></i></a></li>
@@ -144,58 +144,6 @@
                         <div class="page-wrapper">
                             <!-- [ Main Content ] start -->
                             <div class="row">
-                                <!--[ daily sales section ] start-->
-                                <div class="col-md-6 col-xl-4">
-                                    <div class="card daily-sales">
-                                        <div class="card-block">
-                                            <h6 class="mb-4">Başvuru Sayısı</h6>
-                                            <div class="row d-flex align-items-center">
-                                                <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>AYWAT EKLE</h3>
-                                                </div>
-                                            </div>
-                                            <div class="progress m-t-30" style="height: 7px;">
-                                                <div class="progress-bar progress-c-theme" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--[ daily sales section ] end-->
-                                <!--[ Monthly  sales section ] starts-->
-                                <div class="col-md-6 col-xl-4">
-                                    <div class="card Monthly-sales">
-                                        <div class="card-block">
-                                            <h6 class="mb-4">Onaylanmamış Başvuru Sayısı</h6>
-                                            <div class="row d-flex align-items-center">
-                                                <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-arrow-down text-c-red f-30 m-r-10"></i>AYWAT EL AT</h3>
-                                                </div>
-                                            </div>
-                                            <div class="progress m-t-30" style="height: 7px;">
-                                                <div class="progress-bar progress-c-theme2" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--[ Monthly  sales section ] end-->
-                                <!--[ year  sales section ] starts-->
-                                <div class="col-md-12 col-xl-4">
-                                    <div class="card yearly-sales">
-                                        <div class="card-block">
-                                            <h6 class="mb-4">Onaylanan Başvuru Sayısı</h6>
-                                            <div class="row d-flex align-items-center">
-                                                <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>AYWAT EKLE</h3>
-                                                </div>
-                                            </div>
-                                            <div class="progress m-t-30" style="height: 7px;">
-                                                <div class="progress-bar progress-c-theme" role="progressbar" style="width: 80%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!--[ year  sales section ] end-->
 
                             <!-- [ Hover-table ] start -->
                             <div class="col-xl-12">
@@ -208,46 +156,55 @@
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>Profil</th>
+
                                                         <th>Ad</th>
                                                         <th>Soyad</th>
                                                         <th>Numara</th>
-                                                        <th>Başvuru Türü</th>
-                                                        <th>Yüklenen Belgeler</th>
+                                                        <th>Proje Başlıgı</th>
+                                                        <th>Proje Durumu</th>
+                                                        <th>PDF Dosyası</th>
+                                                        <th>Word Dosyası</th>
+                                                        <th>Onayla</th>
+                                                        <th>Açıklama</th>
+                                                        <th>Reddet</th>
+
                                                         <th></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
+                                                <tbody >
 
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                                        <td>Jacob</td>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                        <td>pdf ler</td>
-                                                        <td><a href="#!" class="label theme-bg2 text-white f-12">Reddet</a><a href="#!" class="label theme-bg text-white f-12">Onayla</a><a href="acıklama3" class="label theme-bg text-white f-12">Açıklama Yap</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                                        <td>Mark</td>
-                                                        <td>Jacob</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                        <td>pdf ler</td>
-                                                        <td><a href="#!" class="label theme-bg2 text-white f-12">Reddet</a><a href="#!" class="label theme-bg text-white f-12">Onayla</a><a href="#!" class="label theme-bg text-white f-12">Açıklama Yap</a></td>
-                                                    </tr>
-                                                    <tr>
+                                                    @forelse ($bilgi2 as $key2 => $val2)
+                                                    <input  type="hidden" class="form-control" name="kad"  {{ $akey2=$val2 ['tez_id']}} placeholder="Kullanıcı Adı">
 
-                                                        <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                                        <td>Jacob</td>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                        <td>pdf ler</td>
-                                                        <td><a href="#!" class="label theme-bg2 text-white f-12">Reddet</a><a href="#!" class="label theme-bg text-white f-12">Onayla</a><a href="#!" class="label theme-bg text-white f-12">Açıklama Yap</a></td>
-                                                    </tr>
-                                                </tbody>
+                                                    <tr>
+                                                        <td>{{  $val2 ['ad']}}</td>
+                                                        <td>{{ $val2 ['soyad'] }}</td>
+                                                         <td>{{ $val2 ["no"]}}</td>
+                                                         <td>{{ $val2 ["baslik"]}}</td>
+                                                         <td>{{ $val2 ["durum"]}}</td>
+                                                         <td><a href="{{url($val2 ["pdf_path"])}}" type="submit" class="label theme-bg text-white f-12">1.PDF</a></td>
+                                                         <td><a href="{{url($val2 ["word_path"])}}" type="submit" class="label theme-bg text-white f-12">1.Word</a></td>
+                                                        <td>
+                                                            <a href="{{url("tezonayla/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Onayla</a>
+
+                                                         </td>
+                                                         <td>
+                                                            <a href="{{url("aciklama3/".$akey2)}}" type="submit" class="label theme-bg text-white f-12">Açıklama</a>
+
+                                                         </td>
+
+                                                         <td>   <a href="{{url("tezreddet/$akey2")}}" type="submit" class="label theme-bg2 text-white f-12">Reddet</a>
+                                        </td>
+
+                                    </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="4">Veri bulunamadı</td>
+                                        </tr>
+                                        @endforelse
+
+
+                                        </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -261,81 +218,16 @@
                             </form>
                         </div>
 
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Açıklama Ekleyiniz</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" column="200" rows="6" ></textarea>
-            <button type="button" class="btn btn-square btn-dark">Açıklamayı Kaydet</button>
-        </div>
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Benzerlik Olan Öğrenci</h5>
-                </div>
-                <div class="card-block table-border-style">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Başvuran Profil</th>
-                                    <th>Başvuran Ad</th>
-                                    <th>Başvuran Soyad</th>
-                                    <th>Baş.Numara</th>
-                                    <th>Benzeyen Profil</th>
-                                    <th>Benzeyen Ad</th>
-                                    <th>Benzeyen Soyad</th>
-                                    <th>Benzeyen Numara</th>
-                                    <th>                                        </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <tr>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>11111111</td>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>11111</td>
-                                </tr>
-                                <tr>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>11111111</td>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>111111112</td>
-                                </tr>
-                                <tr><td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>11111111</td>
-                                    <td><img class="rounded-circle" style="width:40px;" src="images/user/avatar-2.jpg" alt="activity-user"></td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>111111112</td>
-                                </tr>
-                            </tbody>
 
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- [ Hover-table ] end -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<!-- Required Js -->
-<script src="{{url('js/pcoded.min.js')}}"></script>
+  <!-- Required Js -->
+  <script src="{{url('js/pcoded.min.js')}}"></script>
   <script src="{{url('js/vendor-all.min.js')}}"></script>
   <script src="{{url('plugins/bootstrap/js/bootstrap.min.js')}}"></script>
-
 </body>
 </html>
